@@ -1,113 +1,267 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<title>W3.CSS Template</title>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
-<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato">
-<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Montserrat">
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-<style>
-body,h1,h2,h3,h4,h5,h6 {font-family: "Lato", sans-serif}
-.w3-bar,h1,button {font-family: "Montserrat", sans-serif}
-.fa-anchor,.fa-coffee {font-size:200px}
-</style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Gabriele La Malfa | Safe & Trusted AI</title>
+  <meta name="description" content="Gabriele La Malfa | PhD candidate in Safe & Trusted AI focusing on fairness in multi-agent systems. King’s College London & Imperial College London.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Work+Sans:wght@400;500;600;700&family=Source+Serif+4:ital@0;1&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <link rel="stylesheet" href="static/style.css">
 </head>
 <body>
-
-<!-- Navbar -->
-<div class="w3-top">
-  <div class="w3-bar w3-red w3-card w3-left-align w3-large">
-    <a class="w3-bar-item w3-button w3-hide-medium w3-hide-large w3-right w3-padding-large w3-hover-white w3-large w3-red" href="javascript:void(0);" onclick="myFunction()" title="Toggle Navigation Menu"><i class="fa fa-bars"></i></a>
-    <a href="#" class="w3-bar-item w3-button w3-padding-large w3-white">Home</a>
-    <a href="#" class="w3-bar-item w3-button w3-hide-small w3-padding-large w3-hover-white">Link 1</a>
-    <a href="#" class="w3-bar-item w3-button w3-hide-small w3-padding-large w3-hover-white">Link 2</a>
-    <a href="#" class="w3-bar-item w3-button w3-hide-small w3-padding-large w3-hover-white">Link 3</a>
-    <a href="#" class="w3-bar-item w3-button w3-hide-small w3-padding-large w3-hover-white">Link 4</a>
-  </div>
-
-  <!-- Navbar on small screens -->
-  <div id="navDemo" class="w3-bar-block w3-white w3-hide w3-hide-large w3-hide-medium w3-large">
-    <a href="#" class="w3-bar-item w3-button w3-padding-large">Link 1</a>
-    <a href="#" class="w3-bar-item w3-button w3-padding-large">Link 2</a>
-    <a href="#" class="w3-bar-item w3-button w3-padding-large">Link 3</a>
-    <a href="#" class="w3-bar-item w3-button w3-padding-large">Link 4</a>
-  </div>
-</div>
-
-<!-- Header -->
-<header class="w3-container w3-red w3-center" style="padding:128px 16px">
-  <h1 class="w3-margin w3-jumbo">Gabriele La Malfa</h1>
-  <p class="w3-xlarge">Professional webpage</p>
-  <button class="w3-button w3-black w3-padding-large w3-large w3-margin-top" onclick="window.open('/doc/cv.pdf')">Curriculum Vitae</button>
-</header>
-
-<!-- First Grid -->
-<div class="w3-row-padding w3-padding-64 w3-container">
-  <div class="w3-content">
-    <div class="w3-twothird">
-      <h1>Lorem Ipsum</h1>
-      <h5 class="w3-padding-32">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</h5>
-
-      <p class="w3-text-grey">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Excepteur sint
-        occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco
-        laboris nisi ut aliquip ex ea commodo consequat.</p>
+  <header class="site-header" id="top">
+    <div class="nav-shell">
+      <div class="brand">
+        <span class="brand-mark"></span>
+        <span>Gabriele La Malfa</span>
+      </div>
+      <nav class="nav-links">
+        <a href="#about">About</a>
+        <a href="#publications">Publications</a>
+        <a href="#experience">Experience</a>
+        <a href="#teaching">Teaching</a>
+        <a href="#service">Service</a>
+        <a href="#projects">Projects</a>
+        <a href="#contact">Contact</a>
+      </nav>
+      <div class="nav-actions">
+        <a class="btn ghost" href="mailto:gabriele.la_malfa@kcl.ac.uk">Email</a>
+        <a class="btn primary" href="static/doc/cv.pdf" target="_blank" rel="noopener">CV</a>
+      </div>
     </div>
-
-    <div class="w3-third w3-center">
-      <i class="fa fa-anchor w3-padding-64 w3-text-red"></i>
+    <div class="hero">
+      <div class="hero-text">
+        <p class="eyebrow">Safe & Trusted AI CDT · King’s College London & Imperial College London</p>
+        <h1>Gabriele La Malfa</h1>
+        <p class="lead">
+          PhD candidate researching fairness in multi-agent systems and reinforcement learning.
+          Currently visiting the Social Dynamics group at Nokia Bell Labs, Cambridge (2025).
+        </p>
+        <div class="hero-actions">
+          <a class="btn primary" href="static/doc/cv.pdf" target="_blank" rel="noopener">Download CV</a>
+          <a class="btn ghost" href="#publications">View publications</a>
+        </div>
+      </div>
+      <div class="hero-card">
+        <div class="card">
+          <p class="card-label">Current roles</p>
+          <ul>
+            <li>PhD in Safe & Trusted AI (Fairness in Multi-Agent Systems)</li>
+            <li>Visiting Researcher, Nokia Bell Labs (Social Dynamics)</li>
+          </ul>
+          <p class="card-label">Location</p>
+          <p class="card-detail">London, UK & Cambridge, UK</p>
+        </div>
+      </div>
     </div>
-  </div>
-</div>
+  </header>
 
-<!-- Second Grid -->
-<div class="w3-row-padding w3-light-grey w3-padding-64 w3-container">
-  <div class="w3-content">
-    <div class="w3-third w3-center">
-      <i class="fa fa-coffee w3-padding-64 w3-text-red w3-margin-right"></i>
+  <main>
+    <section class="section" id="about">
+      <div class="section-header">
+        <p class="eyebrow">Research Focus</p>
+        <h2>Fairness-aware multi-agent systems and socio-technical AI</h2>
+        <p class="section-lead">
+          I design methods to make autonomous agents fair, transparent, and aligned with human values in complex environments, combining
+          reinforcement learning, social choice, and network science.
+        </p>
+      </div>
+      <div class="grid two-col">
+        <div class="card">
+          <h3>Current work</h3>
+          <ul class="list">
+            <li>Safe & Trusted AI CDT doctoral researcher, jointly at King’s College London and Imperial College London (since Oct 2022).</li>
+            <li>Visiting researcher in the Social Dynamics group, Nokia Bell Labs Cambridge (since Jul 2025).</li>
+          </ul>
+        </div>
+        <div class="card">
+          <h3>Interests & methods</h3>
+          <ul class="list">
+            <li>Fairness in multi-agent systems and multi-agent reinforcement learning.</li>
+            <li>Socio-technical AI, governance, and ethical AI evaluations.</li>
+            <li>Complex networks perspectives on deep neural architectures.</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="publications">
+      <div class="section-header">
+        <p class="eyebrow">Publications</p>
+        <h2>Recent papers</h2>
+      </div>
+      <div class="stack">
+        <article class="pub">
+          <h3>Large Language Models Miss the Multi-Agent Mark</h3>
+          <p class="pub-meta">NeurIPS 2025, Position Paper Track</p>
+          <p class="pub-authors">Gabriele La Malfa, Emanuele La Malfa, Samuele Marro, Jie M. Zhang, Elizabeth Black, Michael Luck, Philip Torr, Michael Wooldridge</p>
+        </article>
+        <article class="pub">
+          <h3>Fairness Aware Reinforcement Learning via Proximal Policy Optimization</h3>
+          <p class="pub-meta">AAAI-26, Main Technical Track</p>
+          <p class="pub-authors">Gabriele La Malfa, Jie M. Zhang, Michael Luck, Elizabeth Black</p>
+        </article>
+        <article class="pub">
+          <h3>Using Protected Attributes to Consider Fairness in Multi-Agent Systems</h3>
+          <p class="pub-meta">ECAI 2024, AEQUITAS Workshop</p>
+          <p class="pub-authors">Gabriele La Malfa, Jie M. Zhang, Michael Luck, Elizabeth Black</p>
+        </article>
+        <article class="pub">
+          <h3>Deep Neural Networks via Complex Network Theory: a Perspective</h3>
+          <p class="pub-meta">IJCAI 2024, Main Track</p>
+          <p class="pub-authors">Gabriele La Malfa, Emanuele La Malfa, Giuseppe Nicosia, Vito Latora</p>
+        </article>
+      </div>
+    </section>
+
+    <section class="section" id="experience">
+      <div class="section-header">
+        <p class="eyebrow">Experience</p>
+        <h2>Academic and industry roles</h2>
+      </div>
+      <div class="timeline">
+        <article class="timeline-item">
+          <div class="timeline-meta">Oct 2022 – Present · London, UK</div>
+          <h3>PhD Candidate, Safe & Trusted AI CDT</h3>
+          <p class="timeline-org">King’s College London & Imperial College London</p>
+          <p class="timeline-note">Fairness in multi-agent systems. Supervisors: Prof. Elizabeth Black, Prof. Michael Luck, Dr. Jie Zhang.</p>
+        </article>
+        <article class="timeline-item">
+          <div class="timeline-meta">Jul 2025 – Present · Cambridge, UK</div>
+          <h3>Visiting Researcher, Social Dynamics Group</h3>
+          <p class="timeline-org">Nokia Bell Labs</p>
+          <p class="timeline-note">Working on social dynamics and fairness with Prof. Daniele Quercia and Dr. Lakmal Meegahapola.</p>
+        </article>
+        <article class="timeline-item">
+          <div class="timeline-meta">Oct 2020 – Aug 2022 · Cambridge, UK</div>
+          <h3>Research Assistant</h3>
+          <p class="timeline-org">Centre for Risk Studies, Cambridge Judge Business School</p>
+          <p class="timeline-note">Risk researcher and modeller in business, financial, and cyber risk. Co-authored “Mitigating ransomware risk: determining optimal strategies for businesses”.</p>
+        </article>
+        <article class="timeline-item">
+          <div class="timeline-meta">Jun 2020 – Aug 2020 · Luxembourg</div>
+          <h3>Quantitative Risk Officer</h3>
+          <p class="timeline-org">Deutsche Börse AG</p>
+          <p class="timeline-note">Financial and credit risk management; model implementation for securities lending products.</p>
+        </article>
+        <article class="timeline-item">
+          <div class="timeline-meta">Jun 2019 – May 2020 · Frankfurt, Germany</div>
+          <h3>Risk Management Intern</h3>
+          <p class="timeline-org">Deutsche Börse AG</p>
+          <p class="timeline-note">Operational and business risk management across the group.</p>
+        </article>
+      </div>
+    </section>
+
+    <section class="section" id="education">
+      <div class="section-header">
+        <p class="eyebrow">Education</p>
+        <h2>Academic background</h2>
+      </div>
+      <div class="grid three-col">
+        <div class="card">
+          <h3>EMLyon Business School</h3>
+          <p class="card-meta">MSc Quantitative Finance</p>
+          <p class="card-detail">Graduated Feb 2020 · Paris, France</p>
+        </div>
+        <div class="card">
+          <h3>University of Eastern Piedmont</h3>
+          <p class="card-meta">Master’s in Accounting, Business Administration and Consulting</p>
+          <p class="card-detail">Graduated Apr 2017 · Novara, Italy</p>
+        </div>
+        <div class="card">
+          <h3>University of Eastern Piedmont</h3>
+          <p class="card-meta">Bachelor’s in Accounting, Business Administration and Consulting</p>
+          <p class="card-detail">Graduated Jul 2014 · Novara, Italy</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="teaching">
+      <div class="section-header">
+        <p class="eyebrow">Teaching</p>
+        <h2>Modules and tutorials</h2>
+      </div>
+      <div class="grid two-col">
+        <div class="card">
+          <h3>2024–2025 (HT), King’s College London</h3>
+          <ul class="list">
+            <li>Artificial Intelligence — Practical</li>
+            <li>Mathematics and Statistics for AI — Small group tutorial</li>
+          </ul>
+        </div>
+        <div class="card">
+          <h3>2023–2024 (HT), King’s College London</h3>
+          <ul class="list">
+            <li>Machine Learning — Practical and small group tutorial</li>
+            <li>Logic and Knowledge Representation — Practical and small group tutorial</li>
+            <li>Big Data Technologies — Practical</li>
+            <li>Elementary Logic and Applications — Large group tutorial</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="service">
+      <div class="section-header">
+        <p class="eyebrow">Service & Outreach</p>
+        <h2>Community, conferences, and volunteering</h2>
+      </div>
+      <div class="grid two-col">
+        <div class="card">
+          <h3>Academic service</h3>
+          <ul class="list">
+            <li>Organizing Committee, LOD 2020–2025.</li>
+            <li>Student Volunteer, IJCAI 2024.</li>
+            <li>Reviewer, AAAI.</li>
+          </ul>
+        </div>
+        <div class="card">
+          <h3>Projects & volunteering</h3>
+          <ul class="list">
+            <li>Lead, Lunchtime Dialogues: Identity & Social Justice (2024–2025), King’s College London.</li>
+            <li>Lead, Dialogues about Identity and Privilege (2023–2024), NMES, King’s College London.</li>
+            <li>Interviewer, Ukrainian Global University (2022–2023).</li>
+            <li>Volunteer, Kharkiv and Przemyśl Project (2022) and multiple human rights initiatives.</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="projects">
+      <div class="section-header">
+        <p class="eyebrow">Projects</p>
+        <h2>Open-source and research code</h2>
+      </div>
+      <div class="grid two-col">
+        <div class="card">
+          <h3>Fair-PPO</h3>
+          <p class="card-detail">Fairness-aware reinforcement learning via Proximal Policy Optimization.</p>
+        </div>
+        <div class="card">
+          <h3>HospitalSim</h3>
+          <p class="card-detail">Reinforcement learning environment simulating hospital daily routines.</p>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer" id="contact">
+    <div class="footer-content">
+      <div>
+        <p class="eyebrow">Contact</p>
+        <h2>Let’s talk</h2>
+        <p>Email: <a href="mailto:gabriele.la_malfa@kcl.ac.uk">gabriele.la_malfa@kcl.ac.uk</a></p>
+        <p>Based in London, UK (Talbot Yard SE1 1XT) with research visits in Cambridge.</p>
+      </div>
+      <div class="footer-actions">
+        <a class="btn primary" href="static/doc/cv.pdf" target="_blank" rel="noopener">Download CV</a>
+        <a class="btn ghost" href="#top">Back to top</a>
+      </div>
     </div>
-
-    <div class="w3-twothird">
-      <h1>Lorem Ipsum</h1>
-      <h5 class="w3-padding-32">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</h5>
-
-      <p class="w3-text-grey">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Excepteur sint
-        occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco
-        laboris nisi ut aliquip ex ea commodo consequat.</p>
-    </div>
-  </div>
-</div>
-
-<div class="w3-container w3-black w3-center w3-opacity w3-padding-64">
-    <h1 class="w3-margin w3-xlarge">Quote of the day: live life</h1>
-</div>
-
-<!-- Footer -->
-<footer class="w3-container w3-padding-64 w3-center w3-opacity">  
-  <div class="w3-xlarge w3-padding-32">
-    <i class="fa fa-facebook-official w3-hover-opacity"></i>
-    <i class="fa fa-instagram w3-hover-opacity"></i>
-    <i class="fa fa-snapchat w3-hover-opacity"></i>
-    <i class="fa fa-pinterest-p w3-hover-opacity"></i>
-    <i class="fa fa-twitter w3-hover-opacity"></i>
-    <i class="fa fa-linkedin w3-hover-opacity"></i>
- </div>
- <p>Powered by <a href="https://www.w3schools.com/w3css/default.asp" target="_blank">w3.css</a></p>
-</footer>
-
-<script>
-// Used to toggle the menu on small screens when clicking on the menu button
-function myFunction() {
-  var x = document.getElementById("navDemo");
-  if (x.className.indexOf("w3-show") == -1) {
-    x.className += " w3-show";
-  } else { 
-    x.className = x.className.replace(" w3-show", "");
-  }
-}
-</script>
-
+  </footer>
 </body>
 </html>
-
