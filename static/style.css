@@ -304,6 +304,14 @@ a:hover {
   border: 1px solid var(--line);
 }
 
+.pub-link {
+  color: var(--accent);
+}
+
+.pub-link:hover {
+  color: var(--text);
+}
+
 .pub-meta {
   font-weight: 600;
   color: var(--accent);
