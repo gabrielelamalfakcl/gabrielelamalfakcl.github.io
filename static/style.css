@@ -24,11 +24,9 @@
 body {
   margin: 0;
   font-family: var(--font-body);
-  font-size: 17px;
+  font-size: 19px;
   color: var(--text);
   background: var(--bg);
-  background-image: linear-gradient(rgba(212, 197, 227, 0.4) 1px, transparent 1px), linear-gradient(90deg, rgba(212, 197, 227, 0.4) 1px, transparent 1px);
-  background-size: 20px 20px;
   line-height: 1.6;
 }
 
@@ -36,9 +34,19 @@ h1,
 h2,
 h3 {
   font-family: var(--font-heading);
-  margin: 0 0 12px;
-  font-weight: 700;
-  letter-spacing: -0.02em;
+  margin: 0 0 16px;
+  font-weight: 800;
+  letter-spacing: -0.03em;
+  text-transform: uppercase;
+}
+
+h2 {
+  font-size: 42px;
+  line-height: 1.2;
+}
+
+h3 {
+  font-size: 26px;
 }
 
 p {
@@ -156,23 +164,24 @@ a:hover {
 .hero {
   max-width: 1100px;
   margin: 0 auto;
-  padding: 20px 28px 64px;
+  padding: 60px 28px 100px;
   display: grid;
-  grid-template-columns: 1.4fr 1fr;
-  gap: 24px;
+  grid-template-columns: 1.3fr 1fr;
+  gap: 40px;
   align-items: center;
   position: relative;
   z-index: 2;
 }
 
 .hero-text h1 {
-  font-size: 52px;
-  margin: 10px 0 14px;
-  line-height: 1.1;
+  font-size: 72px;
+  margin: 10px 0 16px;
+  line-height: 1.05;
+  text-shadow: 4px 4px 0px var(--accent);
 }
 
 .lead {
-  font-size: 19px;
+  font-size: 22px;
   color: var(--muted);
 }
 
@@ -216,17 +225,15 @@ a:hover {
 }
 
 .hero-profile-pic {
-  width: 220px;
-  height: 220px;
+  width: 320px;
+  height: 320px;
 }
 
 .profile-pic-container {
-  width: 160px;
-  height: 160px;
-  border: 3px solid var(--accent);
-  padding: 4px;
-  background: var(--panel);
-  box-shadow: 6px 6px 0px var(--text);
+  border: 4px solid var(--text);
+  padding: 0;
+  background: var(--accent);
+  box-shadow: 12px 12px 0px var(--accent-red);
 }
 
 .profile-pic {
@@ -259,7 +266,7 @@ a:hover {
 .section {
   max-width: 1100px;
   margin: 0 auto;
-  padding: 42px 28px;
+  padding: 80px 28px;
 }
 
 .section-header {
@@ -303,11 +310,17 @@ a:hover {
 
 .card {
   background: var(--panel);
-  border: 2px solid var(--text);
+  border: 3px solid var(--text);
   border-radius: var(--radius);
-  padding: 18px 20px;
-  box-shadow: 6px 6px 0px rgba(0, 0, 0, 0.1);
+  padding: 24px;
+  box-shadow: 8px 8px 0px var(--text);
   position: relative;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.card:hover {
+  transform: translate(-4px, -4px);
+  box-shadow: 12px 12px 0px var(--accent-2);
 }
 
 .card-meta {
@@ -338,11 +351,17 @@ a:hover {
 }
 
 .pub {
-  padding: 16px 18px;
+  padding: 20px 24px;
   border-radius: var(--radius);
   background: var(--panel);
-  border: 2px solid var(--text);
-  box-shadow: 4px 4px 0px rgba(0, 0, 0, 0.1);
+  border: 3px solid var(--text);
+  box-shadow: 8px 8px 0px var(--text);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.pub:hover {
+  transform: translate(-4px, -4px);
+  box-shadow: 12px 12px 0px var(--accent-red);
 }
 
 .pub-link {
@@ -375,11 +394,17 @@ a:hover {
 
 .timeline-item {
   position: relative;
-  padding: 12px 16px;
+  padding: 16px 20px;
   background: var(--panel);
-  border: 2px solid var(--text);
+  border: 3px solid var(--text);
   border-radius: var(--radius);
-  box-shadow: 4px 4px 0px rgba(0, 0, 0, 0.1);
+  box-shadow: 8px 8px 0px var(--text);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.timeline-item:hover {
+  transform: translate(-4px, -4px);
+  box-shadow: 12px 12px 0px var(--accent);
 }
 
 .timeline-item::before {
