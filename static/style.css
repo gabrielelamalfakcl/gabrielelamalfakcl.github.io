@@ -1,14 +1,15 @@
 :root {
   --bg: #ffffff;
-  --panel: #f3f4f6;
-  --text: #0b1008;
-  --muted: #4b5563;
-  --accent: #2e8b57; /* Marathon dark green */
-  --accent-2: #00fa9a; /* Marathon bright terminal green */
-  --accent-soft: rgba(46, 139, 87, 0.14);
-  --line: #b0c4b1;
-  --shadow: 0 8px 24px rgba(0, 0, 0, 0.08);
-  --radius: 0px; /* Marathon UI is blocky */
+  --panel: #f9f7fc;
+  --text: #20093a; /* Dark purple */
+  --muted: #6e5b87;
+  --accent: #00ff66; /* Cyberpunk light green */
+  --accent-2: #ccff00; /* Highlighter green */
+  --accent-red: #ff0055; /* Highlighter red */
+  --accent-soft: rgba(0, 255, 102, 0.15);
+  --line: #d4c5e3;
+  --shadow: 0 8px 24px rgba(32, 9, 58, 0.08);
+  --radius: 0px; 
   --font-mono: "IBM Plex Mono", ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
 }
 
@@ -23,7 +24,7 @@ body {
   font-family: var(--font-mono);
   color: var(--text);
   background: var(--bg);
-  background-image: linear-gradient(rgba(176, 196, 177, 0.2) 1px, transparent 1px), linear-gradient(90deg, rgba(176, 196, 177, 0.2) 1px, transparent 1px);
+  background-image: linear-gradient(rgba(212, 197, 227, 0.4) 1px, transparent 1px), linear-gradient(90deg, rgba(212, 197, 227, 0.4) 1px, transparent 1px);
   background-size: 20px 20px;
   line-height: 1.6;
 }
@@ -42,12 +43,14 @@ p {
 }
 
 a {
-  color: var(--accent);
+  color: var(--accent-red);
   text-decoration: none;
+  font-weight: 600;
 }
 
 a:hover {
-  color: var(--accent-2);
+  color: var(--text);
+  background-color: var(--accent);
 }
 
 .site-header {
@@ -98,9 +101,9 @@ a:hover {
 }
 
 .nav-links a:hover {
-  background: var(--accent-soft);
-  color: var(--accent);
-  border-bottom: 2px solid var(--accent);
+  background: var(--accent);
+  color: var(--text);
+  border-bottom: 2px solid var(--text);
 }
 
 .nav-actions {
@@ -122,7 +125,7 @@ a:hover {
 
 .btn.primary {
   background: var(--accent);
-  color: #ffffff;
+  color: var(--text);
   border: 2px solid var(--text);
   box-shadow: 4px 4px 0px var(--text);
 }
@@ -140,8 +143,9 @@ a:hover {
 }
 
 .btn.ghost:hover {
-  border-color: var(--text);
+  border-color: var(--accent-red);
   color: var(--text);
+  background: var(--accent-red);
   box-shadow: 4px 4px 0px var(--text);
 }
 
@@ -187,7 +191,7 @@ a:hover {
   content: "";
   position: absolute;
   inset: -2px;
-  border: 2px solid var(--accent);
+  border: 2px solid var(--accent-red);
   z-index: -1;
   transform: translate(4px, 4px);
 }
@@ -264,7 +268,7 @@ a:hover {
   border-radius: 0px;
   font-weight: 600;
   color: var(--text);
-  box-shadow: 2px 2px 0px var(--accent);
+  box-shadow: 2px 2px 0px var(--accent-red);
 }
 
 .grid {
@@ -368,7 +372,7 @@ a:hover {
   top: 18px;
   width: 12px;
   height: 12px;
-  background: var(--accent);
+  background: var(--accent-red);
   border: 3px solid #fff;
   border-radius: 50%;
   box-shadow: 0 0 0 6px var(--accent-soft);
@@ -408,7 +412,7 @@ a:hover {
 }
 
 .footer a {
-  color: var(--accent);
+  color: var(--accent-red);
 }
 
 .footer-actions {
