@@ -352,12 +352,11 @@ a:hover {
   gap: 14px;
 }
 
-/* Project cards: image left, text right */
+/* Project cards: image top, text below */
 .project-card {
-  display: grid;
-  grid-template-columns: 400px 1fr;
-  gap: 28px;
-  align-items: start;
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
   padding: 28px;
   background: var(--panel);
   border: 3px solid var(--text);
@@ -372,6 +371,7 @@ a:hover {
 
 .project-img img {
   width: 100%;
+  max-width: 700px;
   display: block;
   border: 2px solid var(--text);
   background: #fff;
@@ -390,15 +390,6 @@ a:hover {
   margin-top: 12px;
   display: flex;
   gap: 10px;
-}
-
-@media (max-width: 700px) {
-  .project-card {
-    grid-template-columns: 1fr;
-  }
-  .project-img img {
-    max-width: 280px;
-  }
 }
 
 .pub {
