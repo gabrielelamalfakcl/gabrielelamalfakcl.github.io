@@ -390,6 +390,18 @@ a:hover {
   max-width: 400px;
 }
 
+.project-img--duo {
+  display: flex;
+  gap: 16px;
+  align-items: start;
+}
+
+.project-img--duo img {
+  max-width: none;
+  flex: 1;
+  min-width: 0;
+}
+
 .project-info h3 {
   margin-bottom: 6px;
 }
