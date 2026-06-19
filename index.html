@@ -170,9 +170,16 @@
             <h3><a class="pub-link" href="https://ojs.aaai.org/index.php/AAAI/article/view/39434" target="_blank"
                 rel="noopener">Fairness Aware RL via PPO</a></h3>
             <p class="pub-meta">AAAI 2026 (Oral)</p>
-            <p>We propose a fairness-aware extension to Proximal Policy Optimization that embeds equity constraints
-              directly into the policy gradient. Our method ensures fair resource allocation across agents with
-              different protected attributes in cooperative multi-agent environments.</p>
+            <p>Orchestrating agents that collectively behave fairly while efficiently pursuing their goals is a critical
+              frontier in fair reinforcement learning (Fair RL). However, a persistent challenge remains: How can we
+              enforce and enhance fairness when certain agents possess sensitive attributes?
+              <br>
+              To address this, we introduce Fair-PPO, an adaptive, PPO-grounded optimization method designed to
+              dynamically re-orient policy convergence whenever a target fairness metric is violated. Unlike static
+              approaches, Fair-PPO actively accounts for and adjusts gradient convergence by balancing two critical
+              dimensions: historical bias derived from past trajectories, and potential future bias estimated via the
+              value function.
+            </p>
             <p class="pub-authors">Gabriele La Malfa, Jie M. Zhang, Michael Luck, Elizabeth Black</p>
             <div class="project-links">
               <a class="btn primary" href="https://ojs.aaai.org/index.php/AAAI/article/view/39434" target="_blank"
