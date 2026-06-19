@@ -1,15 +1,19 @@
 :root {
   --bg: #ffffff;
   --panel: #f9f7fc;
-  --text: #20093a; /* Dark purple */
+  --text: #20093a;
+  /* Dark purple */
   --muted: #6e5b87;
-  --accent: #00ff66; /* Cyberpunk light green */
-  --accent-2: #ccff00; /* Highlighter green */
-  --accent-red: #ff0055; /* Highlighter red */
+  --accent: #00ff66;
+  /* Cyberpunk light green */
+  --accent-2: #ccff00;
+  /* Highlighter green */
+  --accent-red: #ff0055;
+  /* Highlighter red */
   --accent-soft: rgba(0, 255, 102, 0.15);
   --line: #d4c5e3;
   --shadow: 0 8px 24px rgba(32, 9, 58, 0.08);
-  --radius: 0px; 
+  --radius: 0px;
   --font-body: "Inter", sans-serif;
   --font-heading: "Outfit", sans-serif;
   --font-mono: "IBM Plex Mono", ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
@@ -67,7 +71,8 @@ a:hover {
 
 .site-header {
   background: var(--bg);
-  border-bottom: 2px solid var(--accent); /* Thick marathon border */
+  border-bottom: 2px solid var(--accent);
+  /* Thick marathon border */
   position: relative;
   overflow: hidden;
 }
@@ -197,7 +202,7 @@ a:hover {
   border: 2px solid var(--text);
   border-radius: var(--radius);
   padding: 18px 20px;
-  box-shadow: 8px 8px 0px rgba(0,0,0,0.1);
+  box-shadow: 8px 8px 0px rgba(0, 0, 0, 0.1);
   position: relative;
 }
 
@@ -382,7 +387,7 @@ a:hover {
 }
 
 .project-img--sm img {
-  max-width: 480px;
+  max-width: 400px;
 }
 
 .project-info h3 {
