@@ -6,6 +6,8 @@
   --muted: #6e5b87;
   --accent: #00ff66;
   /* Cyberpunk light green */
+  --accent-ink: #008035;
+  /* Readable green for text (5.1:1 on white); --accent stays for fills */
   --accent-2: #ccff00;
   /* Highlighter green */
   --accent-red: #ff0055;
@@ -85,6 +87,7 @@ a:hover {
   padding: 22px 28px;
   display: flex;
   align-items: center;
+  flex-wrap: wrap;
   gap: 18px;
   position: relative;
   z-index: 2;
@@ -108,14 +111,15 @@ a:hover {
 
 .nav-links {
   display: flex;
-  gap: 16px;
+  flex-wrap: wrap;
+  gap: 10px;
   margin-left: auto;
 }
 
 .nav-links a {
   font-weight: 500;
   color: var(--text);
-  padding: 8px 10px;
+  padding: 8px 6px;
   border-radius: 10px;
 }
 
@@ -127,6 +131,7 @@ a:hover {
 
 .nav-actions {
   display: flex;
+  flex-wrap: wrap;
   gap: 10px;
 }
 
@@ -268,7 +273,7 @@ a:hover {
   font-size: 13px;
   text-transform: uppercase;
   letter-spacing: 0.16em;
-  color: var(--accent);
+  color: var(--accent-ink);
   margin: 0 0 10px;
 }
 
@@ -495,7 +500,7 @@ a:hover {
 }
 
 .pub-link {
-  color: var(--accent);
+  color: var(--accent-ink);
 }
 
 .pub-link:hover {
@@ -515,13 +520,20 @@ a:hover {
 
 .pub-meta {
   font-weight: 600;
-  color: var(--accent);
+  color: var(--accent-ink);
   margin: 0 0 6px;
 }
 
 .pub-authors {
   margin: 0;
   color: var(--muted);
+}
+
+.pronouns {
+  font-weight: 600;
+  font-size: 15px;
+  color: var(--muted);
+  margin-bottom: 10px;
 }
 
 .timeline {
@@ -603,9 +615,21 @@ a:hover {
   gap: 10px;
 }
 
+/* Keep the nav on one row down to ~1000px, then let it wrap tidily */
+@media (max-width: 1100px) {
+  .nav-shell {
+    padding: 22px 16px;
+    gap: 12px;
+  }
+}
+
 @media (max-width: 900px) {
   .nav-shell {
     flex-wrap: wrap;
+  }
+
+  .nav-actions {
+    margin-left: auto;
   }
 
   .nav-links {
@@ -616,6 +640,20 @@ a:hover {
 
   .hero {
     grid-template-columns: 1fr;
+  }
+
+  /* Lead with the name and the tagline, not the photo */
+  .hero-text {
+    order: 1;
+  }
+
+  .hero-side {
+    order: 2;
+  }
+
+  .hero-profile-pic {
+    width: min(320px, 78vw);
+    height: min(320px, 78vw);
   }
 
   .footer-content {
