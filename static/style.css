@@ -185,6 +185,221 @@ a:hover {
   z-index: 2;
 }
 
+/* ---- Hero robotics scene (decorative, behind the hero content) ---- */
+.hero-scene {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 0;
+  pointer-events: none;
+  overflow: hidden;
+}
+
+.hero-side,
+.hero-text {
+  position: relative;
+  z-index: 1;
+}
+
+.scene-dot {
+  fill: var(--text);
+  opacity: 0.16;
+}
+
+.scene-route {
+  fill: none;
+  stroke: var(--text);
+  stroke-width: 2;
+  stroke-opacity: 0.18;
+  stroke-dasharray: 10 14;
+  stroke-linecap: round;
+}
+
+.scene-node {
+  fill: none;
+  stroke: var(--accent-ink);
+  stroke-width: 2;
+  opacity: 0.45;
+}
+
+.scene-ping {
+  fill: none;
+  stroke: var(--accent-ink);
+  stroke-width: 2;
+  opacity: 0;
+  transform-box: fill-box;
+  transform-origin: center;
+}
+
+.scene-robot rect,
+.scene-robot circle,
+.scene-robot line,
+.scene-agent-b rect,
+.scene-agent-b circle,
+.scene-agent-b line {
+  fill: var(--bg);
+  stroke: var(--text);
+  stroke-width: 2.2;
+  stroke-linecap: round;
+  opacity: 0.55;
+}
+
+.scene-agent-b rect,
+.scene-agent-b circle,
+.scene-agent-b line {
+  stroke-width: 2;
+  opacity: 0.42;
+}
+
+.scene-cone {
+  fill: var(--accent);
+  fill-opacity: 0.16;
+  stroke: var(--accent-ink);
+  stroke-width: 1.5;
+  stroke-opacity: 0.3;
+}
+
+.scene-blink {
+  fill: var(--accent) !important;
+  stroke: var(--accent-ink) !important;
+}
+
+/* Static frame for everyone; motion only if the visitor welcomes it. */
+.scene-robot {
+  transform: translate(600px, 695px);
+}
+
+.scene-agent-b {
+  transform: translate(880px, 762px);
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .scene-robot {
+    animation: scene-patrol 34s linear infinite;
+  }
+
+  .scene-agent-b {
+    animation: scene-drift 41s linear infinite;
+  }
+
+  .scene-sweep {
+    animation: scene-sweep 5.5s ease-in-out infinite alternate;
+    transform-origin: 0 0;
+  }
+
+  .scene-bob {
+    animation: scene-bob 2.6s ease-in-out infinite alternate;
+  }
+
+  .scene-ping {
+    animation: scene-ping 34s linear infinite;
+  }
+
+  .scene-blink {
+    animation: scene-blink 2.2s steps(1, end) infinite;
+  }
+
+  .scene-route {
+    animation: scene-dash 3.4s linear infinite;
+  }
+}
+
+@keyframes scene-patrol {
+  0% {
+    transform: translate(-60px, 755px);
+  }
+
+  24.9% {
+    transform: translate(300px, 755px);
+  }
+
+  29.1% {
+    transform: translate(300px, 695px);
+  }
+
+  69.3% {
+    transform: translate(880px, 695px);
+  }
+
+  73.7% {
+    transform: translate(880px, 758px);
+  }
+
+  100% {
+    transform: translate(1260px, 758px);
+  }
+}
+
+@keyframes scene-drift {
+  0% {
+    transform: translate(1260px, 762px);
+  }
+
+  100% {
+    transform: translate(-60px, 762px);
+  }
+}
+
+@keyframes scene-sweep {
+  0% {
+    transform: rotate(-34deg);
+  }
+
+  100% {
+    transform: rotate(34deg);
+  }
+}
+
+@keyframes scene-bob {
+  0% {
+    transform: translateY(0);
+  }
+
+  100% {
+    transform: translateY(-2.5px);
+  }
+}
+
+@keyframes scene-ping {
+  0% {
+    transform: scale(0.8);
+    opacity: 0.6;
+  }
+
+  7% {
+    transform: scale(5.5);
+    opacity: 0;
+  }
+
+  100% {
+    transform: scale(0.8);
+    opacity: 0;
+  }
+}
+
+@keyframes scene-blink {
+  0%,
+  55% {
+    opacity: 0.9;
+  }
+
+  56%,
+  100% {
+    opacity: 0.25;
+  }
+}
+
+@keyframes scene-dash {
+  0% {
+    stroke-dashoffset: 0;
+  }
+
+  100% {
+    stroke-dashoffset: -48;
+  }
+}
+
 .hero-text h1 {
   font-size: 72px;
   margin: 10px 0 16px;
@@ -624,6 +839,13 @@ a:hover {
 }
 
 @media (max-width: 900px) {
+  .scene-robot,
+  .scene-agent-b,
+  .scene-route,
+  .scene-nodes {
+    display: none;
+  }
+
   .nav-shell {
     flex-wrap: wrap;
   }

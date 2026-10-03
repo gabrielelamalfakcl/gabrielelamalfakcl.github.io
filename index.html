@@ -72,6 +72,67 @@
       </div>
     </div>
     <div class="hero">
+      <svg class="hero-scene" viewBox="0 0 1200 800" preserveAspectRatio="xMidYMid slice" aria-hidden="true"
+        focusable="false">
+        <defs>
+          <pattern id="scene-grid" width="48" height="48" patternUnits="userSpaceOnUse">
+            <circle cx="1.6" cy="1.6" r="1.6" class="scene-dot" />
+          </pattern>
+          <linearGradient id="scene-fade" x1="0" y1="0" x2="0" y2="1">
+            <stop offset="0%" stop-color="#fff" stop-opacity="0.05" />
+            <stop offset="45%" stop-color="#fff" stop-opacity="0.4" />
+            <stop offset="78%" stop-color="#fff" stop-opacity="1" />
+            <stop offset="100%" stop-color="#fff" stop-opacity="1" />
+          </linearGradient>
+          <mask id="scene-mask">
+            <rect width="1200" height="800" fill="url(#scene-fade)" />
+          </mask>
+        </defs>
+
+        <g mask="url(#scene-mask)">
+          <rect width="1200" height="800" fill="url(#scene-grid)" />
+
+          <!-- surveyed route -->
+          <path class="scene-route"
+            d="M -60 755 L 300 755 L 300 695 L 880 695 L 880 758 L 1260 758" />
+
+          <!-- waypoints the robot maps on the way -->
+          <g class="scene-nodes">
+            <circle class="scene-node" cx="300" cy="755" r="4.5" />
+            <circle class="scene-ping" cx="300" cy="755" r="3" style="animation-delay: 8.5s" />
+            <circle class="scene-node" cx="600" cy="695" r="4.5" />
+            <circle class="scene-ping" cx="600" cy="695" r="3" style="animation-delay: 17s" />
+            <circle class="scene-node" cx="880" cy="695" r="4.5" />
+            <circle class="scene-ping" cx="880" cy="695" r="3" style="animation-delay: 23.6s" />
+          </g>
+
+          <!-- second agent, drifting the other way -->
+          <g class="scene-agent-b">
+            <g class="scene-bob">
+              <rect x="-12" y="-9" width="24" height="15" rx="3" />
+              <circle cx="-7" cy="7" r="3.5" />
+              <circle cx="7" cy="7" r="3.5" />
+              <line x1="0" y1="-9" x2="0" y2="-18" />
+              <circle class="scene-blink" cx="0" cy="-20" r="2" />
+            </g>
+          </g>
+
+          <!-- lead robot -->
+          <g class="scene-robot">
+            <g class="scene-sweep">
+              <path class="scene-cone" d="M 0 0 L 76 -28 A 81 81 0 0 1 76 28 Z" />
+            </g>
+            <g class="scene-bob">
+              <rect x="-18" y="-14" width="36" height="23" rx="4" />
+              <rect x="-8" y="-22" width="16" height="9" rx="3" />
+              <circle cx="-11" cy="11" r="5" />
+              <circle cx="11" cy="11" r="5" />
+              <line x1="0" y1="-22" x2="0" y2="-33" />
+              <circle class="scene-blink" cx="0" cy="-35" r="2.6" />
+            </g>
+          </g>
+        </g>
+      </svg>
       <div class="hero-side">
         <div class="profile-pic-container hero-profile-pic">
           <img src="static/drawings/Profile_picture2.jpeg" alt="Gabriele La Malfa" class="profile-pic">
