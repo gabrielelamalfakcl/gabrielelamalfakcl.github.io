@@ -8,6 +8,14 @@
   /* Cyberpunk light green */
   --accent-ink: #008035;
   /* Readable green for text (5.1:1 on white); --accent stays for fills */
+  --sea: #1f6fb2;
+  /* Port scene: water, steel hull, container liveries */
+  --hull-line: #5b6775;
+  --hull-fill: #eceff3;
+  --box-red: #c0442e;
+  --box-blue: #2f6fd0;
+  --box-teal: #0e8d7f;
+  --box-amber: #c98312;
   --accent-2: #ccff00;
   /* Highlighter green */
   --accent-red: #ff0055;
@@ -225,8 +233,6 @@ a:hover {
   stroke-width: 3.4 !important;
 }
 
-.scene-hull-plate,
-.scene-bridge,
 .scene-trolley-car,
 .scene-spreader {
   fill: var(--bg);
@@ -236,22 +242,52 @@ a:hover {
   stroke-linejoin: round;
 }
 
+.scene-hull-plate,
+.scene-bridge {
+  fill: var(--hull-fill);
+  stroke: var(--hull-line);
+  stroke-width: 2.2;
+  stroke-linejoin: round;
+}
+
+.scene-ship line {
+  stroke: var(--hull-line) !important;
+  stroke-opacity: 1 !important;
+}
+
 /* Containers */
 .scene-stack rect,
 .scene-deck rect {
-  fill: var(--accent);
-  fill-opacity: 0.14;
-  stroke: var(--accent-ink);
+  fill-opacity: 0.5;
   stroke-width: 1.8;
-  stroke-opacity: 0.45;
+  stroke-opacity: 0.85;
+}
+
+.box-red {
+  fill: var(--box-red);
+  stroke: var(--box-red);
+}
+
+.box-blue {
+  fill: var(--box-blue);
+  stroke: var(--box-blue);
+}
+
+.box-teal {
+  fill: var(--box-teal);
+  stroke: var(--box-teal);
+}
+
+.box-amber {
+  fill: var(--box-amber);
+  stroke: var(--box-amber);
 }
 
 .scene-cargo {
   fill: var(--accent);
-  fill-opacity: 0.3;
+  fill-opacity: 0.75;
   stroke: var(--accent-ink);
   stroke-width: 2;
-  stroke-opacity: 0.75;
   opacity: 0;
 }
 
@@ -264,20 +300,20 @@ a:hover {
 }
 
 .scene-water {
-  fill: var(--accent);
-  fill-opacity: 0.07;
+  fill: var(--sea);
+  fill-opacity: 0.18;
 }
 
 .scene-waterline {
-  stroke: var(--accent-ink);
+  stroke: var(--sea);
   stroke-width: 2;
-  stroke-opacity: 0.4;
+  stroke-opacity: 0.55;
 }
 
 .scene-wave {
-  stroke: var(--accent-ink);
+  stroke: var(--sea);
   stroke-width: 2;
-  stroke-opacity: 0.42;
+  stroke-opacity: 0.5;
   stroke-linecap: round;
   stroke-dasharray: 26 20;
 }
