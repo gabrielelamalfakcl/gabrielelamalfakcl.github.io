@@ -395,62 +395,106 @@
             </div>
           </div>
           <figure class="project-img project-img--lg">
-            <svg class="project-figure" viewBox="0 0 1000 520" role="img"
-              aria-label="Optimisation trajectory moving from a purely efficient region to a region that is both fair and efficient.">
+            <svg class="project-figure fp2" viewBox="0 0 1000 640" role="img"
+              aria-label="Fairness-reward landscape. Standard PPO climbs the reward axis into the unfair danger region; Fair-PPO steers along the balanced corridor to the optimum.">
+              <title>Gradient steering across the fairness–reward landscape</title>
               <defs>
-                <marker id="fp-arrow" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="5.5" markerHeight="5.5" orient="auto-start-reverse">
-                  <path d="M 0 0 L 10 5 L 0 10 z" class="fp-arrowhead" />
-                </marker>
+                <linearGradient id="fp2-field" gradientUnits="userSpaceOnUse" x1="96.0" y1="66.0" x2="952.0" y2="548.0">
+                  <stop offset="0%" stop-color="var(--box-red)" stop-opacity="0.52" />
+                  <stop offset="14%" stop-color="var(--box-red)" stop-opacity="0.26" />
+                  <stop offset="28%" stop-color="var(--accent-ink)" stop-opacity="0.07" />
+                  <stop offset="50%" stop-color="var(--accent-ink)" stop-opacity="0.3" />
+                  <stop offset="72%" stop-color="var(--accent-ink)" stop-opacity="0.07" />
+                  <stop offset="86%" stop-color="var(--box-red)" stop-opacity="0.26" />
+                  <stop offset="100%" stop-color="var(--box-red)" stop-opacity="0.52" />
+                </linearGradient>
+                <filter id="fp2-glow" x="-80%" y="-80%" width="260%" height="260%">
+                  <feGaussianBlur stdDeviation="6" result="b" /><feMerge><feMergeNode in="b" /><feMergeNode in="SourceGraphic" /></feMerge>
+                </filter>
+                <clipPath id="fp2-clip"><rect x="96.0" y="66.0" width="856.0" height="482.0" /></clipPath>
+                <marker id="fp2-tip" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="5" markerHeight="5" orient="auto">
+                  <path d="M 0 0 L 10 5 L 0 10 z" fill="var(--accent-ink)" /></marker>
               </defs>
-              <title>Fair-PPO: from efficient to fair and efficient</title>
-              <rect class="fp-zone fp-zone-red" x="635.1" y="63.3" width="306.4" height="123.7" rx="6" />
-              <rect class="fp-zone fp-zone-green" x="144.9" y="63.3" width="306.4" height="123.7" rx="6" />
-              <g class="fp-grid">
-                <line x1="104.0" y1="421.0" x2="962.0" y2="421.0" />
-                <line x1="124.4" y1="52.0" x2="124.4" y2="430.0" />
-                <line x1="104.0" y1="331.0" x2="962.0" y2="331.0" />
-                <line x1="328.7" y1="52.0" x2="328.7" y2="430.0" />
-                <line x1="104.0" y1="241.0" x2="962.0" y2="241.0" />
-                <line x1="533.0" y1="52.0" x2="533.0" y2="430.0" />
-                <line x1="104.0" y1="151.0" x2="962.0" y2="151.0" />
-                <line x1="737.3" y1="52.0" x2="737.3" y2="430.0" />
-                <line x1="104.0" y1="61.0" x2="962.0" y2="61.0" />
-                <line x1="941.6" y1="52.0" x2="941.6" y2="430.0" />
+              <rect class="fp2-plot" x="96.0" y="66.0" width="856.0" height="482.0" />
+              <rect x="96.0" y="66.0" width="856.0" height="482.0" fill="url(#fp2-field)" />
+              <g clip-path="url(#fp2-clip)" class="fp2-contours">
+                <ellipse class="fp2-ring" cx="524.0" cy="307.0" rx="102" ry="41" transform="rotate(-29.4 524.0 307.0)" style="--fp2-i: 1" />
+                <ellipse class="fp2-ring" cx="524.0" cy="307.0" rx="164" ry="66" transform="rotate(-29.4 524.0 307.0)" style="--fp2-i: 2" />
+                <ellipse class="fp2-ring" cx="524.0" cy="307.0" rx="226" ry="91" transform="rotate(-29.4 524.0 307.0)" style="--fp2-i: 3" />
+                <ellipse class="fp2-ring" cx="524.0" cy="307.0" rx="288" ry="116" transform="rotate(-29.4 524.0 307.0)" style="--fp2-i: 4" />
+                <ellipse class="fp2-ring" cx="524.0" cy="307.0" rx="350" ry="141" transform="rotate(-29.4 524.0 307.0)" style="--fp2-i: 5" />
+                <ellipse class="fp2-ring" cx="524.0" cy="307.0" rx="412" ry="166" transform="rotate(-29.4 524.0 307.0)" style="--fp2-i: 6" />
+                <ellipse class="fp2-ring" cx="524.0" cy="307.0" rx="474" ry="191" transform="rotate(-29.4 524.0 307.0)" style="--fp2-i: 7" />
               </g>
-              <g class="fp-axis"><line x1="104.0" y1="430.0" x2="962.0" y2="430.0" />
-                <line x1="104.0" y1="52.0" x2="104.0" y2="430.0" /></g>
-              <g class="fp-tick">
-                <text x="124.4" y="456.0" text-anchor="middle">0.2</text>
-                <text x="90.0" y="427.0" text-anchor="end">0.2</text>
-                <text x="328.7" y="456.0" text-anchor="middle">0.4</text>
-                <text x="90.0" y="337.0" text-anchor="end">0.4</text>
-                <text x="533.0" y="456.0" text-anchor="middle">0.6</text>
-                <text x="90.0" y="247.0" text-anchor="end">0.6</text>
-                <text x="737.3" y="456.0" text-anchor="middle">0.8</text>
-                <text x="90.0" y="157.0" text-anchor="end">0.8</text>
-                <text x="941.6" y="456.0" text-anchor="middle">1.0</text>
-                <text x="90.0" y="67.0" text-anchor="end">1.0</text>
+              <g clip-path="url(#fp2-clip)">
+                <line class="fp2-bound" x1="-75.2" y1="548.0" x2="780.8" y2="66.0" />
+                <line class="fp2-bound" x1="267.2" y1="548.0" x2="1123.2" y2="66.0" />
               </g>
-              <text class="fp-axis-title" x="533.0" y="490.0" text-anchor="middle">Demographic disparity → less fair</text>
-              <text class="fp-axis-title" transform="translate(34 241.0) rotate(-90)" text-anchor="middle">Average reward → more efficient</text>
-              <path class="fp-frontier" d="M 226.6 371.5 C 253.8 360.2 342.3 325.8 390.0 304.0 C 437.7 282.2 475.1 259.0 512.6 241.0 C 550.0 223.0 580.7 211.0 614.7 196.0 C 648.8 181.0 682.8 165.2 716.9 151.0 C 750.9 136.8 781.5 125.5 819.0 110.5 C 856.5 95.5 921.1 69.3 941.6 61.0" />
-              <text class="fp-note" x="676.0" y="227.5">baseline trade-off</text>
-              <text class="fp-zone-label fp-label-red" x="788.4" y="157.8" text-anchor="middle">EFFICIENT, UNFAIR</text>
-              <text class="fp-zone-sub fp-label-red" x="788.4" y="174.4" text-anchor="middle">high reward, high disparity</text>
-              <text class="fp-zone-label fp-label-green" x="298.1" y="157.8" text-anchor="middle">FAIR &amp; EFFICIENT</text>
-              <text class="fp-zone-sub fp-label-green" x="298.1" y="174.4" text-anchor="middle">high reward, low disparity</text>
-              <path class="fp-trail" d="M 870.1 106.0 C 856.5 102.6 820.7 90.9 788.4 85.8 C 756.0 80.7 713.5 77.4 676.0 75.4 C 638.5 73.4 601.1 72.9 563.6 73.6 C 526.2 74.4 485.3 77.1 451.3 79.9 C 417.2 82.8 384.9 87.3 359.4 90.7 C 333.8 94.2 308.3 99.0 298.1 100.6" style="--fp-len: 577" />
-              <circle class="fp-start" cx="870.1" cy="106.0" r="9" />
-              <circle class="fp-goal-ring" cx="298.1" cy="100.6" r="10" />
-              <circle class="fp-goal" cx="298.1" cy="100.6" r="9" />
-              <line class="fp-step" style="animation-delay: 1.00s" x1="749.9" y1="80.9" x2="741.9" y2="80.1" marker-end="url(#fp-arrow)" />
-              <line class="fp-step" style="animation-delay: 2.30s" x1="600.2" y1="73.3" x2="592.3" y2="73.3" marker-end="url(#fp-arrow)" />
-              <line class="fp-step" style="animation-delay: 3.60s" x1="450.3" y1="80.0" x2="443.1" y2="80.6" marker-end="url(#fp-arrow)" />
-              <g class="fp-walker">
-                <circle class="fp-walker-halo" r="16" />
-                <circle class="fp-walker-dot" r="8.5" />
+              <g class="fp2-grid">
+                <line x1="96.0" y1="548.0" x2="952.0" y2="548.0" />
+                <line x1="96.0" y1="66.0" x2="96.0" y2="548.0" />
+                <line x1="96.0" y1="451.6" x2="952.0" y2="451.6" />
+                <line x1="267.2" y1="66.0" x2="267.2" y2="548.0" />
+                <line x1="96.0" y1="355.2" x2="952.0" y2="355.2" />
+                <line x1="438.4" y1="66.0" x2="438.4" y2="548.0" />
+                <line x1="96.0" y1="258.8" x2="952.0" y2="258.8" />
+                <line x1="609.6" y1="66.0" x2="609.6" y2="548.0" />
+                <line x1="96.0" y1="162.4" x2="952.0" y2="162.4" />
+                <line x1="780.8" y1="66.0" x2="780.8" y2="548.0" />
+                <line x1="96.0" y1="66.0" x2="952.0" y2="66.0" />
+                <line x1="952.0" y1="66.0" x2="952.0" y2="548.0" />
               </g>
-              <text class="fp-note fp-grad" x="533.0" y="55.6" text-anchor="middle">∇ Fair-PPO policy update</text>
+              <rect class="fp2-frame" x="96.0" y="66.0" width="856.0" height="482.0" />
+              <g class="fp2-tick">
+                <text x="96.0" y="574.0" text-anchor="middle">0</text>
+                <text x="82.0" y="554.0" text-anchor="end">0</text>
+                <text x="267.2" y="574.0" text-anchor="middle">2</text>
+                <text x="82.0" y="457.6" text-anchor="end">2</text>
+                <text x="438.4" y="574.0" text-anchor="middle">4</text>
+                <text x="82.0" y="361.2" text-anchor="end">4</text>
+                <text x="609.6" y="574.0" text-anchor="middle">6</text>
+                <text x="82.0" y="264.8" text-anchor="end">6</text>
+                <text x="780.8" y="574.0" text-anchor="middle">8</text>
+                <text x="82.0" y="168.4" text-anchor="end">8</text>
+                <text x="952.0" y="574.0" text-anchor="middle">10</text>
+                <text x="82.0" y="72.0" text-anchor="end">10</text>
+              </g>
+              <text class="fp2-axis" x="524.0" y="608.0" text-anchor="middle">Policy focus: task reward →</text>
+              <text class="fp2-axis" transform="translate(30 307.0) rotate(-90)" text-anchor="middle">Policy focus: group fairness →</text>
+              <text class="fp2-head" x="96.0" y="42">Gradient steering across the fairness–reward landscape</text>
+              <g class="fp2-danger"><rect x="160.6" y="89.3" width="196" height="98" rx="4" />
+                <text x="258.6" y="119.3" text-anchor="middle">DANGER</text>
+                <text x="258.6" y="143.3" text-anchor="middle">Fairness without</text>
+                <text x="258.6" y="167.3" text-anchor="middle">utility</text>
+              </g>
+              <g class="fp2-danger"><rect x="691.4" y="383.3" width="196" height="98" rx="4" />
+                <text x="789.4" y="413.3" text-anchor="middle">DANGER</text>
+                <text x="789.4" y="437.3" text-anchor="middle">Utility without</text>
+                <text x="789.4" y="461.3" text-anchor="middle">fairness</text>
+              </g>
+              <text class="fp2-sweet" x="686.6" y="266.0" text-anchor="middle">SWEET SPOT</text>
+              <text class="fp2-sweet-sub" x="686.6" y="287.7" text-anchor="middle">balanced trade-off</text>
+              <path class="fp2-trail fp2-trail-ppo" d="M 198.7 480.5 C 224.4 478.9 295.7 471.7 352.8 470.9 C 409.9 470.1 481.2 472.9 541.1 475.7 C 601.0 478.5 659.5 484.1 712.3 487.8 C 765.1 491.4 833.6 495.8 857.8 497.4" style="--len: 660" />
+              <path class="fp2-trail fp2-trail-fair" d="M 198.7 480.5 C 213.0 471.7 251.5 446.0 284.3 427.5 C 317.1 409.0 355.7 389.7 395.6 369.7 C 435.5 349.6 484.1 327.9 524.0 307.0 C 563.9 286.1 599.6 264.4 635.3 244.3 C 670.9 224.3 720.9 196.1 738.0 186.5" style="--len: 615" />
+              <line class="fp2-step" style="animation-delay: 2.00s" x1="353.9" y1="390.7" x2="362.8" y2="386.2" marker-end="url(#fp2-tip)" />
+              <line class="fp2-step" style="animation-delay: 2.90s" x1="491.2" y1="323.5" x2="501.1" y2="318.6" marker-end="url(#fp2-tip)" />
+              <line class="fp2-step" style="animation-delay: 3.80s" x1="626.6" y1="249.2" x2="634.9" y2="244.6" marker-end="url(#fp2-tip)" />
+              <circle class="fp2-origin" cx="198.7" cy="480.5" r="7" />
+              <g class="fp2-fail"><line x1="848.8" y1="488.4" x2="866.8" y2="506.4" />
+                <line x1="866.8" y1="488.4" x2="848.8" y2="506.4" /></g>
+              <text class="fp2-fail-label" x="857.8" y="531.4" text-anchor="middle">disparity ignored</text>
+              <circle class="fp2-goal-ring" cx="738.0" cy="186.5" r="16" />
+              <circle class="fp2-goal-ring fp2-goal-ring2" cx="738.0" cy="186.5" r="16" />
+              <polygon class="fp2-star" points="738.0,171.5 741.8,181.3 752.3,181.9 744.1,188.5 746.8,198.6 738.0,192.9 729.2,198.6 731.9,188.5 723.7,181.9 734.2,181.3" />
+              <line class="fp2-leader" x1="726.0" y1="168.5" x2="566.8" y2="109.4" />
+              <text class="fp2-goal-label" x="558.2" y="99.7" text-anchor="middle">fair &amp; efficient policy</text>
+              <g class="fp2-head-ppo"><circle class="fp2-dot-ppo" r="7.5" /></g>
+              <g class="fp2-head-fair"><circle class="fp2-halo" r="15" /><circle class="fp2-dot-fair" r="8" /></g>
+              <g class="fp2-legend"><rect x="126.0" y="493.8" width="396" height="58" rx="4" />
+                <line class="fp2-key-ppo" x1="142.0" y1="509.8" x2="178.0" y2="509.8" />
+                <text x="188.0" y="514.8">Standard PPO (unconstrained)</text>
+                <line class="fp2-key-fair" x1="142.0" y1="535.8" x2="178.0" y2="535.8" />
+                <text x="188.0" y="540.8">Fair-PPO (gradient steering)</text></g>
             </svg>
           </figure>
         </article>
