@@ -825,6 +825,653 @@ a:hover {
   margin-bottom: 10px;
 }
 
+/* ---- Project figures: shared frame ---- */
+.project-figure {
+  width: 100%;
+  max-width: 900px;
+  display: block;
+  border: 2px solid var(--text);
+  box-shadow: 5px 5px 0px var(--text);
+  background: #fff;
+}
+
+/* ---- LLMs Miss the Multi-Agent Mark: two stacked panels ---- */
+.mas-rows {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  width: 100%;
+}
+
+.mas-panel {
+  border: 2px solid var(--text);
+  box-shadow: 5px 5px 0px var(--text);
+  background: #fff;
+  padding: 24px;
+}
+
+.mas-panel--forward {
+  background: linear-gradient(140deg, rgba(14, 141, 127, 0.1), rgba(14, 141, 127, 0.02));
+}
+
+.mas-head {
+  font-family: var(--font-heading);
+  font-size: 20px;
+  font-weight: 700;
+  margin: 0 0 18px;
+  color: var(--text);
+}
+
+.mas-panel--forward .mas-head {
+  color: var(--box-teal);
+}
+
+.mas-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 16px;
+}
+
+.mas-card {
+  padding: 16px 18px;
+  border: 2px solid var(--text);
+  background: var(--panel);
+}
+
+.mas-card h5 {
+  font-family: var(--font-heading);
+  font-size: 16px;
+  font-weight: 700;
+  margin: 0 0 8px;
+  letter-spacing: 0.01em;
+}
+
+.mas-card p {
+  font-size: 14px;
+  line-height: 1.5;
+  margin: 0;
+  color: var(--muted);
+}
+
+.mas-num {
+  font-family: var(--font-mono);
+  font-size: 13px;
+  font-weight: 600;
+  margin: 0 0 6px !important;
+  opacity: 0.85;
+}
+
+/* The four failure modes keep the saturated treatment of the original figure. */
+.mas-card--fill {
+  border-color: transparent;
+}
+
+.mas-card--fill h5,
+.mas-card--fill p,
+.mas-card--fill .mas-num {
+  color: #fff;
+}
+
+.mas-card--fill p {
+  opacity: 0.92;
+}
+
+.mas-blue {
+  background: #2f5fa8;
+}
+
+.mas-teal {
+  background: #2c6b45;
+}
+
+.mas-violet {
+  background: #6b3fa0;
+}
+
+.mas-slate {
+  background: #414a52;
+}
+
+.mas-panel--forward .mas-card {
+  border-color: rgba(14, 141, 127, 0.35);
+  background: rgba(255, 255, 255, 0.72);
+}
+
+.mas-panel--forward .mas-card h5 {
+  color: var(--box-teal);
+}
+
+/* ---- Reveal on scroll (only once JS confirms support) ---- */
+.js-reveal .reveal,
+.js-reveal .reveal-item {
+  opacity: 0;
+  transform: translateY(18px);
+}
+
+.js-reveal .reveal.is-visible,
+.js-reveal .reveal-item.is-visible {
+  opacity: 1;
+  transform: none;
+  transition: opacity 0.55s ease-out, transform 0.55s cubic-bezier(0.22, 0.75, 0.3, 1);
+}
+
+.js-reveal .mas-grid .reveal-item:nth-child(1).is-visible {
+  transition-delay: 0.05s;
+}
+
+.js-reveal .mas-grid .reveal-item:nth-child(2).is-visible {
+  transition-delay: 0.14s;
+}
+
+.js-reveal .mas-grid .reveal-item:nth-child(3).is-visible {
+  transition-delay: 0.23s;
+}
+
+.js-reveal .mas-grid .reveal-item:nth-child(4).is-visible {
+  transition-delay: 0.32s;
+}
+
+@media (max-width: 720px) {
+  .mas-grid {
+    grid-template-columns: minmax(0, 1fr);
+  }
+}
+
+/* ---- Attacker in the Mirror: three training regimes ---- */
+.atk-panel {
+  fill: var(--panel);
+  stroke: var(--text);
+  stroke-opacity: 0.35;
+  stroke-width: 2;
+}
+
+.atk-title {
+  font-family: var(--font-heading);
+  font-size: 23px;
+  font-weight: 700;
+  fill: var(--text);
+}
+
+.atk-node {
+  font-family: var(--font-body);
+  font-size: 17px;
+  font-weight: 600;
+  fill: var(--text);
+}
+
+.atk-math {
+  font-family: var(--font-mono);
+  font-size: 18px;
+  fill: var(--text);
+}
+
+.atk-sub {
+  font-size: 11px;
+}
+
+.atk-small {
+  font-family: var(--font-body);
+  font-size: 16px;
+  font-weight: 600;
+}
+
+.atk-tiny {
+  font-family: var(--font-body);
+  font-size: 12px;
+  fill: var(--muted);
+}
+
+.atk-indep {
+  font-family: var(--font-mono);
+  font-size: 22px;
+  fill: var(--muted);
+}
+
+.atk-body {
+  font-family: var(--font-body);
+  font-size: 16px;
+  fill: var(--text);
+}
+
+.atk-strong {
+  font-weight: 700;
+}
+
+.atk-glyph {
+  font-family: var(--font-mono);
+  font-size: 18px;
+  font-weight: 700;
+}
+
+.atk-good {
+  fill: var(--accent-ink);
+}
+
+.atk-bad {
+  fill: var(--accent-red-dark);
+}
+
+.atk-box {
+  stroke-width: 2.4;
+}
+
+.atk-red {
+  fill: var(--box-red);
+  fill-opacity: 0.14;
+  stroke: var(--box-red);
+}
+
+.atk-blue {
+  fill: var(--box-blue);
+  fill-opacity: 0.14;
+  stroke: var(--box-blue);
+}
+
+.atk-red-t {
+  fill: var(--box-red);
+}
+
+.atk-blue-t {
+  fill: var(--box-blue);
+}
+
+.atk-divider {
+  stroke: var(--muted);
+  stroke-width: 2;
+  stroke-dasharray: 5 5;
+  stroke-opacity: 0.7;
+}
+
+.atk-shared {
+  fill: var(--text);
+  fill-opacity: 0.07;
+  stroke: var(--text);
+  stroke-width: 3;
+}
+
+.atk-frozen {
+  fill: var(--text);
+  fill-opacity: 0.04;
+  stroke: var(--muted);
+  stroke-width: 2.2;
+  stroke-dasharray: 7 6;
+}
+
+.atk-flow {
+  stroke-width: 2.6;
+}
+
+.atk-flow-red {
+  stroke: var(--box-red);
+}
+
+.atk-flow-blue {
+  stroke: var(--box-blue);
+}
+
+.atk-pulse {
+  opacity: 0;
+}
+
+.atk-pulse-red {
+  fill: var(--box-red);
+}
+
+.atk-pulse-blue {
+  fill: var(--box-blue);
+}
+
+/* The shared-parameter block only reacts in panel 2, where both
+   gradients land on the same weights. */
+.atk-clash {
+  fill: none;
+  stroke: var(--accent-red-dark);
+  stroke-width: 4;
+  opacity: 0;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+
+  /* Panels 1 and 3: the two gradients travel out of phase and never meet. */
+  .atk-pulse-red,
+  .atk-pulse-blue {
+    animation: atk-drop 3.2s ease-in infinite;
+  }
+
+  /* Panel 2: both land on the shared block at the same instant. */
+  .atk-pulse-diag-l {
+    animation: atk-diag-l 3.2s ease-in infinite;
+  }
+
+  .atk-pulse-diag-r {
+    animation: atk-diag-r 3.2s ease-in infinite;
+  }
+
+  .atk-clash {
+    animation: atk-clash 3.2s ease-out infinite;
+  }
+}
+
+@keyframes atk-drop {
+  0% {
+    transform: translateY(0);
+    opacity: 0;
+  }
+
+  12% {
+    opacity: 1;
+  }
+
+  48% {
+    transform: translateY(calc(var(--atk-to) - var(--atk-from)));
+    opacity: 1;
+  }
+
+  56%,
+  100% {
+    transform: translateY(calc(var(--atk-to) - var(--atk-from)));
+    opacity: 0;
+  }
+}
+
+@keyframes atk-diag-l {
+  0% {
+    transform: translate(492px, 120px);
+    opacity: 0;
+  }
+
+  12% {
+    opacity: 1;
+  }
+
+  48% {
+    transform: translate(547px, 139px);
+    opacity: 1;
+  }
+
+  54%,
+  100% {
+    transform: translate(547px, 139px);
+    opacity: 0;
+  }
+}
+
+@keyframes atk-diag-r {
+  0% {
+    transform: translate(710px, 120px);
+    opacity: 0;
+  }
+
+  12% {
+    opacity: 1;
+  }
+
+  48% {
+    transform: translate(655px, 139px);
+    opacity: 1;
+  }
+
+  54%,
+  100% {
+    transform: translate(655px, 139px);
+    opacity: 0;
+  }
+}
+
+@keyframes atk-clash {
+
+  0%,
+  46% {
+    opacity: 0;
+  }
+
+  50% {
+    opacity: 0.9;
+  }
+
+  72%,
+  100% {
+    opacity: 0;
+  }
+}
+
+/* ---- Fair-PPO: efficient -> fair and efficient ---- */
+.fp-zone-red {
+  fill: var(--box-red);
+  fill-opacity: 0.12;
+  stroke: var(--box-red);
+  stroke-opacity: 0.5;
+  stroke-width: 1.6;
+  stroke-dasharray: 6 5;
+}
+
+.fp-zone-green {
+  fill: var(--accent-ink);
+  fill-opacity: 0.12;
+  stroke: var(--accent-ink);
+  stroke-opacity: 0.55;
+  stroke-width: 1.6;
+  stroke-dasharray: 6 5;
+}
+
+.fp-grid line {
+  stroke: var(--text);
+  stroke-opacity: 0.1;
+  stroke-width: 1.2;
+}
+
+.fp-axis line {
+  stroke: var(--text);
+  stroke-opacity: 0.45;
+  stroke-width: 2;
+}
+
+.fp-tick text {
+  font-family: var(--font-mono);
+  font-size: 15px;
+  fill: var(--muted);
+}
+
+.fp-axis-title {
+  font-family: var(--font-body);
+  font-size: 17px;
+  font-weight: 600;
+  fill: var(--muted);
+}
+
+.fp-frontier {
+  fill: none;
+  stroke: var(--text);
+  stroke-opacity: 0.45;
+  stroke-width: 2;
+  stroke-dasharray: 8 7;
+}
+
+.fp-note {
+  font-family: var(--font-body);
+  font-size: 15px;
+  fill: var(--muted);
+}
+
+.fp-grad {
+  font-family: var(--font-mono);
+  font-size: 16px;
+  font-weight: 600;
+  fill: var(--accent-ink);
+}
+
+.fp-zone-label {
+  font-family: var(--font-mono);
+  font-size: 17px;
+  font-weight: 600;
+  letter-spacing: 0.06em;
+}
+
+.fp-zone-sub {
+  font-family: var(--font-body);
+  font-size: 14px;
+  fill: var(--muted);
+}
+
+.fp-label-red {
+  fill: var(--box-red);
+}
+
+.fp-label-green {
+  fill: var(--accent-ink);
+}
+
+.fp-trail {
+  fill: none;
+  stroke: var(--accent-ink);
+  stroke-width: 3.2;
+  stroke-linecap: round;
+}
+
+.fp-arrowhead {
+  fill: var(--accent-ink);
+}
+
+.fp-step {
+  stroke: var(--accent-ink);
+  stroke-width: 2.4;
+  stroke-opacity: 0.85;
+}
+
+.fp-start {
+  fill: #fff;
+  stroke: var(--box-red);
+  stroke-width: 3;
+}
+
+.fp-goal {
+  fill: #fff;
+  stroke: var(--accent-ink);
+  stroke-width: 3;
+}
+
+.fp-goal-ring {
+  fill: none;
+  stroke: var(--accent-ink);
+  stroke-width: 2.5;
+  opacity: 0;
+  transform-box: fill-box;
+  transform-origin: center;
+}
+
+.fp-walker-dot {
+  fill: var(--accent);
+  stroke: var(--accent-ink);
+  stroke-width: 3;
+}
+
+.fp-walker-halo {
+  fill: var(--accent-ink);
+  opacity: 0.16;
+}
+
+/* Static end state: the trail drawn, the walker parked on the goal. */
+.fp-walker {
+  transform: translate(298.1px, 100.6px);
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .fp-trail {
+    stroke-dasharray: var(--fp-len);
+    stroke-dashoffset: var(--fp-len);
+    animation: fp-draw 9s linear infinite;
+  }
+
+  .fp-walker {
+    animation: fp-walk 9s linear infinite;
+  }
+
+  .fp-step {
+    opacity: 0;
+    animation: fp-step 9s linear infinite;
+  }
+
+  .fp-goal-ring {
+    animation: fp-arrive 9s linear infinite;
+  }
+}
+
+@keyframes fp-draw {
+  0% {
+    stroke-dashoffset: var(--fp-len);
+  }
+
+  72%,
+  100% {
+    stroke-dashoffset: 0;
+  }
+}
+
+@keyframes fp-step {
+
+  0%,
+  2% {
+    opacity: 0;
+  }
+
+  8%,
+  88% {
+    opacity: 0.9;
+  }
+
+  96%,
+  100% {
+    opacity: 0;
+  }
+}
+
+@keyframes fp-arrive {
+
+  0%,
+  70% {
+    opacity: 0;
+    transform: scale(0.7);
+  }
+
+  74% {
+    opacity: 0.8;
+    transform: scale(1);
+  }
+
+  86%,
+  100% {
+    opacity: 0;
+    transform: scale(2.6);
+  }
+}
+
+@keyframes fp-walk {
+  0.00% { transform: translate(870.1px, 106.0px); }
+  3.27% { transform: translate(844.7px, 98.9px); }
+  6.55% { transform: translate(819.6px, 92.2px); }
+  9.82% { transform: translate(794.0px, 86.7px); }
+  13.09% { transform: translate(767.8px, 82.9px); }
+  16.36% { transform: translate(741.9px, 80.1px); }
+  19.64% { transform: translate(715.7px, 77.9px); }
+  22.91% { transform: translate(689.7px, 76.2px); }
+  26.18% { transform: translate(663.4px, 74.8px); }
+  29.45% { transform: translate(637.2px, 73.8px); }
+  32.73% { transform: translate(611.1px, 73.3px); }
+  36.00% { transform: translate(584.7px, 73.3px); }
+  39.27% { transform: translate(558.6px, 73.7px); }
+  42.55% { transform: translate(532.5px, 74.6px); }
+  45.82% { transform: translate(506.2px, 76.0px); }
+  49.09% { transform: translate(480.2px, 77.7px); }
+  52.36% { transform: translate(453.9px, 79.7px); }
+  55.64% { transform: translate(427.9px, 82.1px); }
+  58.91% { transform: translate(401.7px, 85.1px); }
+  62.18% { transform: translate(375.7px, 88.5px); }
+  65.45% { transform: translate(349.8px, 92.0px); }
+  68.73% { transform: translate(324.0px, 96.2px); }
+  72.00% { transform: translate(298.1px, 100.6px); }
+  100% { transform: translate(298.1px, 100.6px); }
+}
+
 .timeline {
   display: flex;
   flex-direction: column;

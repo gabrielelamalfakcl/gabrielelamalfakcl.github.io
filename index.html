@@ -292,7 +292,84 @@
             </div>
           </div>
           <figure class="project-img project-img--lg">
-            <img src="static/img_attacker.png" alt="The Attacker in the Mirror diagram">
+            <svg class="project-figure" viewBox="0 0 1200 440" role="img"
+              aria-label="Three training regimes: separate models, self-play red teaming with shared parameters, and Anchored Bipolicy Self-Play with two LoRA adapters over a frozen base.">
+              <title>Separate models vs. self-play vs. Anchored Bipolicy Self-Play</title>
+              <defs>
+                <marker id="atk-r" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="5" markerHeight="5" orient="auto">
+                  <path d="M 0 0 L 10 5 L 0 10 z" fill="var(--box-red)" /></marker>
+                <marker id="atk-b" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="5" markerHeight="5" orient="auto">
+                  <path d="M 0 0 L 10 5 L 0 10 z" fill="var(--box-blue)" /></marker>
+              </defs>
+              <rect class="atk-panel" x="10" y="10" width="386" height="420" rx="6" />
+              <text class="atk-title" x="203" y="46" text-anchor="middle">Separate Models</text>
+              <rect class="atk-box atk-red" x="38" y="74" width="150" height="76" rx="4" />
+              <text class="atk-node" x="113" y="104" text-anchor="middle">Attacker</text>
+              <text class="atk-node" x="113" y="124" text-anchor="middle">Model</text>
+              <text class="atk-math" x="113" y="144" text-anchor="middle">θ<tspan class="atk-sub" dy="4">A</tspan></text>
+              <rect class="atk-box atk-blue" x="218" y="74" width="150" height="76" rx="4" />
+              <text class="atk-node" x="293" y="104" text-anchor="middle">Defender</text>
+              <text class="atk-node" x="293" y="124" text-anchor="middle">Model</text>
+              <text class="atk-math" x="293" y="144" text-anchor="middle">θ<tspan class="atk-sub" dy="4">D</tspan></text>
+              <line class="atk-divider" x1="203" y1="70" x2="203" y2="154" />
+              <line class="atk-flow atk-flow-red" x1="113" y1="152" x2="113" y2="196" marker-end="url(#atk-r)" />
+              <line class="atk-flow atk-flow-blue" x1="293" y1="152" x2="293" y2="196" marker-end="url(#atk-b)" />
+              <circle class="atk-pulse atk-pulse-red" cx="113" cy="152" r="5" style="--atk-from: 152px; --atk-to: 192px; animation-delay: 0s" />
+              <circle class="atk-pulse atk-pulse-blue" cx="293" cy="152" r="5" style="--atk-from: 152px; --atk-to: 192px; animation-delay: 1.6s" />
+              <text class="atk-math atk-red-t" x="113" y="224" text-anchor="middle">∇ℒ<tspan class="atk-sub" dy="4">A</tspan></text>
+              <text class="atk-math atk-blue-t" x="293" y="224" text-anchor="middle">∇ℒ<tspan class="atk-sub" dy="4">D</tspan></text>
+              <text class="atk-glyph atk-good" x="30" y="288">✓</text>
+              <text class="atk-body" x="54" y="288"><tspan class="atk-strong">Benefit:</tspan> Guaranteed separation between</text>
+              <text class="atk-body" x="54" y="311">attacker and defender.</text>
+              <text class="atk-glyph atk-bad" x="30" y="362">✕</text>
+              <text class="atk-body" x="54" y="362"><tspan class="atk-strong">Drawback:</tspan> High memory cost</text>
+              <text class="atk-body" x="54" y="385">(doubled VRAM).</text>
+              <rect class="atk-panel" x="408" y="10" width="386" height="420" rx="6" />
+              <text class="atk-title" x="601" y="46" text-anchor="middle">Self-Play Red Team (Self-RedTeam)</text>
+              <text class="atk-small atk-red-t" x="482" y="84" text-anchor="middle">Attacker loss</text>
+              <text class="atk-math atk-red-t" x="482" y="108" text-anchor="middle">∇ℒ<tspan class="atk-sub" dy="4">A</tspan></text>
+              <text class="atk-small atk-blue-t" x="720" y="84" text-anchor="middle">Defender loss</text>
+              <text class="atk-math atk-blue-t" x="720" y="108" text-anchor="middle">∇ℒ<tspan class="atk-sub" dy="4">D</tspan></text>
+              <rect class="atk-shared" x="526" y="146" width="150" height="76" rx="4" />
+              <text class="atk-node" x="601" y="176" text-anchor="middle">Shared</text>
+              <text class="atk-node" x="601" y="196" text-anchor="middle">Parameters</text>
+              <text class="atk-math" x="601" y="216" text-anchor="middle">θ</text>
+              <line class="atk-flow atk-flow-red" x1="492" y1="120" x2="554" y2="142" marker-end="url(#atk-r)" />
+              <line class="atk-flow atk-flow-blue" x1="710" y1="120" x2="648" y2="142" marker-end="url(#atk-b)" />
+              <circle class="atk-pulse atk-pulse-red atk-pulse-diag-l" r="5" />
+              <circle class="atk-pulse atk-pulse-blue atk-pulse-diag-r" r="5" />
+              <rect class="atk-clash" x="526" y="146" width="150" height="76" rx="4" />
+              <text class="atk-glyph atk-good" x="428" y="288">✓</text>
+              <text class="atk-body" x="452" y="288"><tspan class="atk-strong">Benefit:</tspan> Single-model memory efficiency.</text>
+              <text class="atk-glyph atk-bad" x="428" y="340">✕</text>
+              <text class="atk-body" x="452" y="340"><tspan class="atk-strong">Drawback:</tspan> Self-consistency collapse under</text>
+              <text class="atk-body" x="452" y="363">a single gradient update.</text>
+              <rect class="atk-panel" x="806" y="10" width="386" height="420" rx="6" />
+              <text class="atk-title" x="999" y="46" text-anchor="middle">Anchored Bipolicy Self-Play (ABS)</text>
+              <rect class="atk-box atk-red" x="822" y="74" width="126" height="62" rx="4" />
+              <text class="atk-node" x="885" y="100" text-anchor="middle">LoRA Attacker</text>
+              <text class="atk-math" x="885" y="124" text-anchor="middle">φ<tspan class="atk-sub" dy="4">A</tspan></text>
+              <rect class="atk-box atk-blue" x="1050" y="74" width="126" height="62" rx="4" />
+              <text class="atk-node" x="1113" y="100" text-anchor="middle">LoRA Defender</text>
+              <text class="atk-math" x="1113" y="124" text-anchor="middle">φ<tspan class="atk-sub" dy="4">D</tspan></text>
+              <text class="atk-indep" x="999" y="96" text-anchor="middle">⫫</text>
+              <text class="atk-tiny" x="999" y="116" text-anchor="middle">gradient</text>
+              <text class="atk-tiny" x="999" y="130" text-anchor="middle">independence</text>
+              <line class="atk-flow atk-flow-red" x1="885" y1="140" x2="885" y2="196" marker-end="url(#atk-r)" />
+              <line class="atk-flow atk-flow-blue" x1="1113" y1="140" x2="1113" y2="196" marker-end="url(#atk-b)" />
+              <circle class="atk-pulse atk-pulse-red" cx="885" cy="140" r="5" style="--atk-from: 140px; --atk-to: 192px; animation-delay: 0s" />
+              <circle class="atk-pulse atk-pulse-blue" cx="1113" cy="140" r="5" style="--atk-from: 140px; --atk-to: 192px; animation-delay: 1.6s" />
+              <text class="atk-math atk-red-t" x="852" y="178" text-anchor="middle">∇ℒ<tspan class="atk-sub" dy="4">A</tspan></text>
+              <text class="atk-math atk-blue-t" x="1146" y="178" text-anchor="middle">∇ℒ<tspan class="atk-sub" dy="4">D</tspan></text>
+              <rect class="atk-frozen" x="846" y="204" width="306" height="68" rx="4" />
+              <text class="atk-node" x="999" y="230" text-anchor="middle">Frozen Base Model</text>
+              <text class="atk-math" x="999" y="254" text-anchor="middle">θ<tspan class="atk-sub" dy="4">BASE</tspan></text>
+              <text class="atk-glyph atk-good" x="826" y="310">✓</text>
+              <text class="atk-body" x="850" y="310"><tspan class="atk-strong">Benefit:</tspan> LoRA-level memory efficiency.</text>
+              <text class="atk-glyph atk-good" x="826" y="362">✓</text>
+              <text class="atk-body" x="850" y="362"><tspan class="atk-strong">Benefit:</tspan> Attacker and defender gradient</text>
+              <text class="atk-body" x="850" y="385">updates stay separated.</text>
+            </svg>
           </figure>
         </article>
         <article class="project-card">
@@ -318,7 +395,63 @@
             </div>
           </div>
           <figure class="project-img project-img--lg">
-            <img src="static/img_fairppo.png" alt="Fair PPO diagram">
+            <svg class="project-figure" viewBox="0 0 1000 520" role="img"
+              aria-label="Optimisation trajectory moving from a purely efficient region to a region that is both fair and efficient.">
+              <defs>
+                <marker id="fp-arrow" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="5.5" markerHeight="5.5" orient="auto-start-reverse">
+                  <path d="M 0 0 L 10 5 L 0 10 z" class="fp-arrowhead" />
+                </marker>
+              </defs>
+              <title>Fair-PPO: from efficient to fair and efficient</title>
+              <rect class="fp-zone fp-zone-red" x="635.1" y="63.3" width="306.4" height="123.7" rx="6" />
+              <rect class="fp-zone fp-zone-green" x="144.9" y="63.3" width="306.4" height="123.7" rx="6" />
+              <g class="fp-grid">
+                <line x1="104.0" y1="421.0" x2="962.0" y2="421.0" />
+                <line x1="124.4" y1="52.0" x2="124.4" y2="430.0" />
+                <line x1="104.0" y1="331.0" x2="962.0" y2="331.0" />
+                <line x1="328.7" y1="52.0" x2="328.7" y2="430.0" />
+                <line x1="104.0" y1="241.0" x2="962.0" y2="241.0" />
+                <line x1="533.0" y1="52.0" x2="533.0" y2="430.0" />
+                <line x1="104.0" y1="151.0" x2="962.0" y2="151.0" />
+                <line x1="737.3" y1="52.0" x2="737.3" y2="430.0" />
+                <line x1="104.0" y1="61.0" x2="962.0" y2="61.0" />
+                <line x1="941.6" y1="52.0" x2="941.6" y2="430.0" />
+              </g>
+              <g class="fp-axis"><line x1="104.0" y1="430.0" x2="962.0" y2="430.0" />
+                <line x1="104.0" y1="52.0" x2="104.0" y2="430.0" /></g>
+              <g class="fp-tick">
+                <text x="124.4" y="456.0" text-anchor="middle">0.2</text>
+                <text x="90.0" y="427.0" text-anchor="end">0.2</text>
+                <text x="328.7" y="456.0" text-anchor="middle">0.4</text>
+                <text x="90.0" y="337.0" text-anchor="end">0.4</text>
+                <text x="533.0" y="456.0" text-anchor="middle">0.6</text>
+                <text x="90.0" y="247.0" text-anchor="end">0.6</text>
+                <text x="737.3" y="456.0" text-anchor="middle">0.8</text>
+                <text x="90.0" y="157.0" text-anchor="end">0.8</text>
+                <text x="941.6" y="456.0" text-anchor="middle">1.0</text>
+                <text x="90.0" y="67.0" text-anchor="end">1.0</text>
+              </g>
+              <text class="fp-axis-title" x="533.0" y="490.0" text-anchor="middle">Demographic disparity → less fair</text>
+              <text class="fp-axis-title" transform="translate(34 241.0) rotate(-90)" text-anchor="middle">Average reward → more efficient</text>
+              <path class="fp-frontier" d="M 226.6 371.5 C 253.8 360.2 342.3 325.8 390.0 304.0 C 437.7 282.2 475.1 259.0 512.6 241.0 C 550.0 223.0 580.7 211.0 614.7 196.0 C 648.8 181.0 682.8 165.2 716.9 151.0 C 750.9 136.8 781.5 125.5 819.0 110.5 C 856.5 95.5 921.1 69.3 941.6 61.0" />
+              <text class="fp-note" x="676.0" y="227.5">baseline trade-off</text>
+              <text class="fp-zone-label fp-label-red" x="788.4" y="157.8" text-anchor="middle">EFFICIENT, UNFAIR</text>
+              <text class="fp-zone-sub fp-label-red" x="788.4" y="174.4" text-anchor="middle">high reward, high disparity</text>
+              <text class="fp-zone-label fp-label-green" x="298.1" y="157.8" text-anchor="middle">FAIR &amp; EFFICIENT</text>
+              <text class="fp-zone-sub fp-label-green" x="298.1" y="174.4" text-anchor="middle">high reward, low disparity</text>
+              <path class="fp-trail" d="M 870.1 106.0 C 856.5 102.6 820.7 90.9 788.4 85.8 C 756.0 80.7 713.5 77.4 676.0 75.4 C 638.5 73.4 601.1 72.9 563.6 73.6 C 526.2 74.4 485.3 77.1 451.3 79.9 C 417.2 82.8 384.9 87.3 359.4 90.7 C 333.8 94.2 308.3 99.0 298.1 100.6" style="--fp-len: 577" />
+              <circle class="fp-start" cx="870.1" cy="106.0" r="9" />
+              <circle class="fp-goal-ring" cx="298.1" cy="100.6" r="10" />
+              <circle class="fp-goal" cx="298.1" cy="100.6" r="9" />
+              <line class="fp-step" style="animation-delay: 1.00s" x1="749.9" y1="80.9" x2="741.9" y2="80.1" marker-end="url(#fp-arrow)" />
+              <line class="fp-step" style="animation-delay: 2.30s" x1="600.2" y1="73.3" x2="592.3" y2="73.3" marker-end="url(#fp-arrow)" />
+              <line class="fp-step" style="animation-delay: 3.60s" x1="450.3" y1="80.0" x2="443.1" y2="80.6" marker-end="url(#fp-arrow)" />
+              <g class="fp-walker">
+                <circle class="fp-walker-halo" r="16" />
+                <circle class="fp-walker-dot" r="8.5" />
+              </g>
+              <text class="fp-note fp-grad" x="533.0" y="55.6" text-anchor="middle">∇ Fair-PPO policy update</text>
+            </svg>
           </figure>
         </article>
         <article class="project-card">
@@ -337,10 +470,65 @@
               <a class="btn primary" href="https://arxiv.org/abs/2505.21298" target="_blank" rel="noopener">Paper</a>
             </div>
           </div>
-          <figure class="project-img project-img--duo">
-            <img src="static/img_llm_multiagent.png" alt="LLM Multi-Agent diagram">
-            <img src="static/img_llm_multiagent2.png" alt="LLM Multi-Agent diagram 2" class="img-smaller">
-          </figure>
+          <div class="mas-rows">
+            <section class="mas-panel reveal" aria-labelledby="mas-short">
+              <h4 class="mas-head" id="mas-short">Where MAS LLMs fall short</h4>
+              <div class="mas-grid">
+                <article class="mas-card mas-card--fill mas-blue reveal-item">
+                  <p class="mas-num">01</p>
+                  <h5>Social intelligence</h5>
+                  <p>LLM agents&rsquo; &ldquo;cooperation&rdquo; is often scripted or orchestrated, not a result of inherent
+                    social abilities like negotiation or reasoning about others&rsquo; intentions.</p>
+                </article>
+                <article class="mas-card mas-card--fill mas-teal reveal-item">
+                  <p class="mas-num">02</p>
+                  <h5>Environment design</h5>
+                  <p>Environments are designed specifically for LLMs (text-based). This design choice inherits LLM
+                    limitations like non-determinism and hallucination.</p>
+                </article>
+                <article class="mas-card mas-card--fill mas-violet reveal-item">
+                  <p class="mas-num">03</p>
+                  <h5>Coordination &amp; communication</h5>
+                  <p>Interactions are typically sequential and synchronous, lacking true asynchronicity. Communication
+                    relies on inefficient and ambiguous natural language.</p>
+                </article>
+                <article class="mas-card mas-card--fill mas-slate reveal-item">
+                  <p class="mas-num">04</p>
+                  <h5>Emergent behaviours</h5>
+                  <p>There is no proper definition of emergent behaviour, just observational hype.</p>
+                </article>
+              </div>
+            </section>
+
+            <section class="mas-panel mas-panel--forward reveal" aria-labelledby="mas-forward">
+              <h4 class="mas-head" id="mas-forward">A path forward: integrating established MAS principles</h4>
+              <div class="mas-grid">
+                <article class="mas-card reveal-item">
+                  <h5>Social pre-training</h5>
+                  <p>Move beyond single-agent fine-tuning. Pre-train LLMs in multi-agent scenarios involving cooperation
+                    and competition, using reinforcement learning and interactive feedback to develop native social
+                    skills.</p>
+                </article>
+                <article class="mas-card reveal-item">
+                  <h5>Agent-agnostic environments</h5>
+                  <p>Design open, multi-modal environments that are not LLM-centric. Integrate structured memory systems
+                    and formal planners to provide guarantees, handle non-determinism, and reduce hallucination.</p>
+                </article>
+                <article class="mas-card reveal-item">
+                  <h5>Standardized communication</h5>
+                  <p>Adopt natively asynchronous frameworks and standardized, open-source communication protocols
+                    (inspired by KQML, FIPA). This will ensure security, identity, trust, and clarity, reducing cost and
+                    ambiguity.</p>
+                </article>
+                <article class="mas-card reveal-item">
+                  <h5>Quantifiable emergence</h5>
+                  <p>Establish clear, falsifiable definitions and benchmarks for emergent behaviour, distinguishing weak
+                    emergence (explainable from parts) from strong emergence (requiring new laws). This moves analysis
+                    from anecdote to science.</p>
+                </article>
+              </div>
+            </section>
+          </div>
         </article>
       </div>
     </section>
@@ -434,6 +622,23 @@
       </div>
     </div>
   </footer>
+  <script>
+    (function () {
+      var items = document.querySelectorAll('.reveal, .reveal-item');
+      if (!items.length) return;
+      var reduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+      if (reduced || !('IntersectionObserver' in window)) return;
+      document.documentElement.classList.add('js-reveal');
+      var io = new IntersectionObserver(function (entries) {
+        entries.forEach(function (entry) {
+          if (!entry.isIntersecting) return;
+          entry.target.classList.add('is-visible');
+          io.unobserve(entry.target);
+        });
+      }, { rootMargin: '0px 0px -12% 0px', threshold: 0.12 });
+      items.forEach(function (el) { io.observe(el); });
+    })();
+  </script>
 </body>
 
 </html>
