@@ -176,7 +176,7 @@ a:hover {
 .hero {
   max-width: 1100px;
   margin: 0 auto;
-  padding: 60px 28px 100px;
+  padding: 60px 28px 200px;
   display: grid;
   grid-template-columns: 1fr 1.3fr;
   gap: 40px;
@@ -185,7 +185,7 @@ a:hover {
   z-index: 2;
 }
 
-/* ---- Hero robotics scene (decorative, behind the hero content) ---- */
+/* ---- Hero port scene: ship, crane, cargo (decorative) ---- */
 .hero-scene {
   position: absolute;
   inset: 0;
@@ -207,196 +207,234 @@ a:hover {
   opacity: 0.16;
 }
 
-.scene-route {
-  fill: none;
+/* Shared line work */
+.scene-quay line,
+.scene-crane line,
+.scene-ship line {
   stroke: var(--text);
-  stroke-width: 2;
-  stroke-opacity: 0.18;
-  stroke-dasharray: 10 14;
+  stroke-width: 2.2;
+  stroke-opacity: 0.5;
   stroke-linecap: round;
 }
 
-.scene-node {
-  fill: none;
-  stroke: var(--accent-ink);
-  stroke-width: 2;
-  opacity: 0.45;
+.scene-crane line {
+  stroke-opacity: 0.6;
 }
 
-.scene-ping {
-  fill: none;
-  stroke: var(--accent-ink);
-  stroke-width: 2;
-  opacity: 0;
-  transform-box: fill-box;
-  transform-origin: center;
+.scene-boom {
+  stroke-width: 3.4 !important;
 }
 
-.scene-robot rect,
-.scene-robot circle,
-.scene-robot line,
-.scene-agent-b rect,
-.scene-agent-b circle,
-.scene-agent-b line {
+.scene-hull-plate,
+.scene-bridge,
+.scene-trolley-car,
+.scene-spreader {
   fill: var(--bg);
   stroke: var(--text);
   stroke-width: 2.2;
-  stroke-linecap: round;
-  opacity: 0.55;
+  stroke-opacity: 0.55;
+  stroke-linejoin: round;
 }
 
-.scene-agent-b rect,
-.scene-agent-b circle,
-.scene-agent-b line {
-  stroke-width: 2;
-  opacity: 0.42;
-}
-
-.scene-cone {
+/* Containers */
+.scene-stack rect,
+.scene-deck rect {
   fill: var(--accent);
-  fill-opacity: 0.16;
+  fill-opacity: 0.14;
   stroke: var(--accent-ink);
-  stroke-width: 1.5;
-  stroke-opacity: 0.3;
+  stroke-width: 1.8;
+  stroke-opacity: 0.45;
 }
 
-.scene-blink {
-  fill: var(--accent) !important;
-  stroke: var(--accent-ink) !important;
+.scene-cargo {
+  fill: var(--accent);
+  fill-opacity: 0.3;
+  stroke: var(--accent-ink);
+  stroke-width: 2;
+  stroke-opacity: 0.75;
+  opacity: 0;
 }
 
-/* Static frame for everyone; motion only if the visitor welcomes it. */
-.scene-robot {
-  transform: translate(600px, 695px);
+.scene-cable {
+  stroke: var(--text);
+  stroke-width: 1.6;
+  stroke-opacity: 0.45;
+  transform-box: fill-box;
+  transform-origin: 50% 0;
 }
 
-.scene-agent-b {
-  transform: translate(880px, 762px);
+.scene-water {
+  fill: var(--accent);
+  fill-opacity: 0.07;
+}
+
+.scene-waterline {
+  stroke: var(--accent-ink);
+  stroke-width: 2;
+  stroke-opacity: 0.4;
+}
+
+.scene-wave {
+  stroke: var(--accent-ink);
+  stroke-width: 2;
+  stroke-opacity: 0.42;
+  stroke-linecap: round;
+  stroke-dasharray: 26 20;
+}
+
+/* Static frame for everyone; the cycle only runs if motion is welcome. */
+.scene-trolley {
+  transform: translateX(620px);
+}
+
+/* quay drop point sits over the middle stack: x = 331 */
+
+.scene-hoist {
+  transform: translateY(-88px);
+}
+
+.scene-cable {
+  transform: scaleY(0.12);
 }
 
 @media (prefers-reduced-motion: no-preference) {
-  .scene-robot {
-    animation: scene-patrol 34s linear infinite;
+
+  /* One 20s loading cycle, shared by trolley, hoist, cable and cargo. */
+  .scene-trolley {
+    animation: scene-traverse 20s ease-in-out infinite;
   }
 
-  .scene-agent-b {
-    animation: scene-drift 41s linear infinite;
+  .scene-hoist {
+    animation: scene-hoist 20s ease-in-out infinite;
   }
 
-  .scene-sweep {
-    animation: scene-sweep 5.5s ease-in-out infinite alternate;
-    transform-origin: 0 0;
+  .scene-cable {
+    animation: scene-cable 20s ease-in-out infinite;
   }
 
-  .scene-bob {
-    animation: scene-bob 2.6s ease-in-out infinite alternate;
+  .scene-cargo {
+    animation: scene-cargo 20s linear infinite;
   }
 
-  .scene-ping {
-    animation: scene-ping 34s linear infinite;
+  .scene-hull {
+    animation: scene-swell 6.5s ease-in-out infinite alternate;
+    transform-box: fill-box;
+    transform-origin: center;
   }
 
-  .scene-blink {
-    animation: scene-blink 2.2s steps(1, end) infinite;
-  }
-
-  .scene-route {
-    animation: scene-dash 3.4s linear infinite;
-  }
-}
-
-@keyframes scene-patrol {
-  0% {
-    transform: translate(-60px, 755px);
-  }
-
-  24.9% {
-    transform: translate(300px, 755px);
-  }
-
-  29.1% {
-    transform: translate(300px, 695px);
-  }
-
-  69.3% {
-    transform: translate(880px, 695px);
-  }
-
-  73.7% {
-    transform: translate(880px, 758px);
-  }
-
-  100% {
-    transform: translate(1260px, 758px);
+  .scene-wave {
+    animation: scene-swell-line 6s linear infinite;
   }
 }
 
-@keyframes scene-drift {
-  0% {
-    transform: translate(1260px, 762px);
-  }
+@keyframes scene-traverse {
 
-  100% {
-    transform: translate(-60px, 762px);
-  }
-}
-
-@keyframes scene-sweep {
-  0% {
-    transform: rotate(-34deg);
-  }
-
-  100% {
-    transform: rotate(34deg);
-  }
-}
-
-@keyframes scene-bob {
-  0% {
-    transform: translateY(0);
-  }
-
-  100% {
-    transform: translateY(-2.5px);
-  }
-}
-
-@keyframes scene-ping {
-  0% {
-    transform: scale(0.8);
-    opacity: 0.6;
-  }
-
-  7% {
-    transform: scale(5.5);
-    opacity: 0;
-  }
-
-  100% {
-    transform: scale(0.8);
-    opacity: 0;
-  }
-}
-
-@keyframes scene-blink {
   0%,
-  55% {
-    opacity: 0.9;
+  26% {
+    transform: translateX(620px);
   }
 
-  56%,
+  42%,
+  68% {
+    transform: translateX(331px);
+  }
+
+  84%,
   100% {
-    opacity: 0.25;
+    transform: translateX(620px);
   }
 }
 
-@keyframes scene-dash {
+@keyframes scene-hoist {
+
+  0% {
+    transform: translateY(-88px);
+  }
+
+  10%,
+  14% {
+    transform: translateY(-56px);
+  }
+
+  26%,
+  42% {
+    transform: translateY(-88px);
+  }
+
+  52%,
+  56% {
+    transform: translateY(-44px);
+  }
+
+  68%,
+  100% {
+    transform: translateY(-88px);
+  }
+}
+
+@keyframes scene-cable {
+
+  0% {
+    transform: scaleY(0.12);
+  }
+
+  10%,
+  14% {
+    transform: scaleY(0.44);
+  }
+
+  26%,
+  42% {
+    transform: scaleY(0.12);
+  }
+
+  52%,
+  56% {
+    transform: scaleY(0.56);
+  }
+
+  68%,
+  100% {
+    transform: scaleY(0.12);
+  }
+}
+
+/* Cargo appears at the pick on the ship, vanishes into the quay stack. */
+@keyframes scene-cargo {
+
+  0%,
+  11.9% {
+    opacity: 0;
+  }
+
+  12%,
+  53.9% {
+    opacity: 1;
+  }
+
+  54%,
+  100% {
+    opacity: 0;
+  }
+}
+
+@keyframes scene-swell {
+  0% {
+    transform: translateY(0) rotate(-0.35deg);
+  }
+
+  100% {
+    transform: translateY(-3px) rotate(0.35deg);
+  }
+}
+
+@keyframes scene-swell-line {
   0% {
     stroke-dashoffset: 0;
   }
 
   100% {
-    stroke-dashoffset: -48;
+    stroke-dashoffset: -46;
   }
 }
 
@@ -839,11 +877,16 @@ a:hover {
 }
 
 @media (max-width: 900px) {
-  .scene-robot,
-  .scene-agent-b,
-  .scene-route,
-  .scene-nodes {
+  .scene-quay,
+  .scene-stack,
+  .scene-sea,
+  .scene-ship,
+  .scene-crane {
     display: none;
+  }
+
+  .hero {
+    padding-bottom: 80px;
   }
 
   .nav-shell {

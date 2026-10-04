@@ -81,7 +81,7 @@
           <linearGradient id="scene-fade" x1="0" y1="0" x2="0" y2="1">
             <stop offset="0%" stop-color="#fff" stop-opacity="0.05" />
             <stop offset="45%" stop-color="#fff" stop-opacity="0.4" />
-            <stop offset="78%" stop-color="#fff" stop-opacity="1" />
+            <stop offset="72%" stop-color="#fff" stop-opacity="1" />
             <stop offset="100%" stop-color="#fff" stop-opacity="1" />
           </linearGradient>
           <mask id="scene-mask">
@@ -92,43 +92,66 @@
         <g mask="url(#scene-mask)">
           <rect width="1200" height="800" fill="url(#scene-grid)" />
 
-          <!-- surveyed route -->
-          <path class="scene-route"
-            d="M -60 755 L 300 755 L 300 695 L 880 695 L 880 758 L 1260 758" />
-
-          <!-- waypoints the robot maps on the way -->
-          <g class="scene-nodes">
-            <circle class="scene-node" cx="300" cy="755" r="4.5" />
-            <circle class="scene-ping" cx="300" cy="755" r="3" style="animation-delay: 8.5s" />
-            <circle class="scene-node" cx="600" cy="695" r="4.5" />
-            <circle class="scene-ping" cx="600" cy="695" r="3" style="animation-delay: 17s" />
-            <circle class="scene-node" cx="880" cy="695" r="4.5" />
-            <circle class="scene-ping" cx="880" cy="695" r="3" style="animation-delay: 23.6s" />
+          <!-- quay -->
+          <g class="scene-quay">
+            <line x1="-20" y1="748" x2="442" y2="748" />
+            <line x1="60" y1="760" x2="60" y2="790" />
+            <line x1="180" y1="760" x2="180" y2="790" />
+            <line x1="300" y1="760" x2="300" y2="790" />
+            <line x1="420" y1="760" x2="420" y2="790" />
+          </g>
+          <g class="scene-stack">
+            <rect x="120" y="724" width="78" height="24" rx="2" />
+            <rect x="206" y="724" width="78" height="24" rx="2" />
+            <rect x="292" y="724" width="78" height="24" rx="2" />
+            <rect x="120" y="698" width="78" height="24" rx="2" />
           </g>
 
-          <!-- second agent, drifting the other way -->
-          <g class="scene-agent-b">
-            <g class="scene-bob">
-              <rect x="-12" y="-9" width="24" height="15" rx="3" />
-              <circle cx="-7" cy="7" r="3.5" />
-              <circle cx="7" cy="7" r="3.5" />
-              <line x1="0" y1="-9" x2="0" y2="-18" />
-              <circle class="scene-blink" cx="0" cy="-20" r="2" />
+          <!-- open water -->
+          <g class="scene-sea">
+            <rect class="scene-water" x="442" y="758" width="820" height="42" />
+            <line class="scene-waterline" x1="442" y1="758" x2="1262" y2="758" />
+            <line class="scene-wave" x1="420" y1="767" x2="1262" y2="767" />
+            <line class="scene-wave" x1="420" y1="776" x2="1262" y2="776"
+              style="animation-duration: 9s; stroke-dasharray: 18 26" />
+            <line class="scene-wave" x1="420" y1="785" x2="1262" y2="785"
+              style="animation-duration: 13s; stroke-dasharray: 32 24" />
+          </g>
+
+          <!-- container ship, moored under the crane -->
+          <g class="scene-ship">
+            <g class="scene-hull">
+              <path class="scene-hull-plate" d="M 478 736 L 862 736 L 836 762 L 500 762 Z" />
+              <rect class="scene-bridge" x="492" y="704" width="44" height="32" rx="2" />
+              <line x1="500" y1="704" x2="500" y2="690" />
+              <g class="scene-deck">
+                <rect x="566" y="712" width="70" height="24" rx="2" />
+                <rect x="644" y="712" width="70" height="24" rx="2" />
+                <rect x="722" y="712" width="70" height="24" rx="2" />
+                <rect x="722" y="686" width="70" height="24" rx="2" />
+              </g>
             </g>
           </g>
 
-          <!-- lead robot -->
-          <g class="scene-robot">
-            <g class="scene-sweep">
-              <path class="scene-cone" d="M 0 0 L 76 -28 A 81 81 0 0 1 76 28 Z" />
-            </g>
-            <g class="scene-bob">
-              <rect x="-18" y="-14" width="36" height="23" rx="4" />
-              <rect x="-8" y="-22" width="16" height="9" rx="3" />
-              <circle cx="-11" cy="11" r="5" />
-              <circle cx="11" cy="11" r="5" />
-              <line x1="0" y1="-22" x2="0" y2="-33" />
-              <circle class="scene-blink" cx="0" cy="-35" r="2.6" />
+          <!-- ship-to-shore crane -->
+          <g class="scene-crane">
+            <line class="scene-boom" x1="212" y1="632" x2="792" y2="632" />
+            <line class="scene-boom" x1="236" y1="614" x2="366" y2="614" />
+            <line x1="250" y1="614" x2="250" y2="748" />
+            <line x1="360" y1="614" x2="360" y2="748" />
+            <line x1="250" y1="660" x2="360" y2="710" />
+            <line x1="360" y1="660" x2="250" y2="710" />
+            <line x1="228" y1="748" x2="382" y2="748" />
+            <line x1="366" y1="614" x2="792" y2="632" />
+            <line x1="236" y1="614" x2="212" y2="632" />
+
+            <g class="scene-trolley">
+              <rect class="scene-trolley-car" x="-15" y="624" width="30" height="12" rx="2" />
+              <line class="scene-cable" x1="0" y1="638" x2="0" y2="738" />
+              <g class="scene-hoist">
+                <rect class="scene-spreader" x="-26" y="738" width="52" height="7" rx="2" />
+                <rect class="scene-cargo" x="-21" y="744" width="42" height="24" rx="2" />
+              </g>
             </g>
           </g>
         </g>
