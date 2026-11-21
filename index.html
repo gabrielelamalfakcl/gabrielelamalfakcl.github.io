@@ -216,6 +216,16 @@
       </div>
       <div class="stack">
         <article class="pub">
+          <h3><a class="pub-link" href="https://arxiv.org/abs/2608.08077" target="_blank" rel="noopener">Explore, Map, Remember, Decide: A Benchmark for VLM Readiness in Safety-Critical Scenarios</a></h3>
+          <p class="pub-meta">Preprint &middot; arXiv:2608.08077</p>
+          <p class="pub-authors"><strong>Gabriele La Malfa</strong>, Nitay Alon, Emanuele La Malfa, Reuth Mirsky, Stefan Sarkadi</p>
+        </article>
+        <article class="pub">
+          <h3><a class="pub-link" href="https://arxiv.org/abs/2610.05346" target="_blank" rel="noopener">Reflections and Fragments: Securing LLMs Against Sequential Mosaic Attacks</a></h3>
+          <p class="pub-meta">Preprint &middot; arXiv:2610.05346</p>
+          <p class="pub-authors">Emanuele La Malfa*, Saar Cohen*, <strong>Gabriele La Malfa</strong>, Mickel Liu, Christian Schroeder de Witt, Natasha Jaques, Michael J. Wooldridge</p>
+        </article>
+        <article class="pub">
           <h3><a class="pub-link" href="https://arxiv.org/abs/2605.08427" target="_blank" rel="noopener">The Attacker in
               the Mirror: Breaking Self-Consistency in Safety via Anchored Bipolicy Self-Play
             </a> <span class="oral-tag">[ORAL]</span></h3>
@@ -227,11 +237,6 @@
           <h3><a class="pub-link" href="https://arxiv.org/abs/2608.08601" target="_blank" rel="noopener">Unaccountable Delegation, Fading Skills: Mapping the Risks of Workplace AI Agents</a> <span class="oral-tag">[ORAL]</span></h3>
           <p class="pub-meta">AIES-26 &middot; arXiv:2608.08601</p>
           <p class="pub-authors"><strong>Gabriele La Malfa</strong>, Lakmal Meegahapola, Edyta Bogucka, Jie M. Zhang, Michael Luck, Elizabeth Black, Daniele Quercia</p>
-        </article>
-        <article class="pub">
-          <h3><a class="pub-link" href="https://arxiv.org/abs/2608.08077" target="_blank" rel="noopener">Explore, Map, Remember, Decide: Are Embodied VLMs Ready for Safety-Critical Scenarios?</a></h3>
-          <p class="pub-meta">arXiv:2608.08077</p>
-          <p class="pub-authors"><strong>Gabriele La Malfa</strong>, Nitay Alon, Emanuele La Malfa, Reuth Mirsky, Stefan Sarkadi</p>
         </article>
         <article class="pub">
           <h3><a class="pub-link" href="https://ojs.aaai.org/index.php/AAAI/article/view/39434" target="_blank"
@@ -268,6 +273,71 @@
         <h2>Recent Projects</h2>
       </div>
       <div class="stack project-stack">
+        <article class="project-card">
+          <div class="project-info">
+            <h3><a class="pub-link" href="https://arxiv.org/abs/2608.08077" target="_blank" rel="noopener">Explore, Map,
+                Remember, Decide</a></h3>
+            <p class="pub-meta">Preprint &middot; arXiv:2608.08077</p>
+            <p class="project-authors"><strong>Gabriele La Malfa</strong>, Nitay Alon, Emanuele La Malfa, Reuth Mirsky,
+              Stefan Sarkadi</p>
+            <div class="project-body">
+              <p><span class="project-tag">Problem</span>Vision-Language Models (VLMs) are increasingly deployed as
+                embodied controllers for robots, yet it is unclear whether they can explore an unfamiliar environment,
+                keep a coherent map of it, and ground safety-critical decisions in what they actually saw. Imagine a
+                robot sweeping a building during an evacuation alarm: in a real emergency, failures compound along the
+                trajectory &mdash; an object never seen cannot be mapped, and a room never entered cannot be chosen.</p>
+              <p><span class="project-tag">Approach</span>We introduce EMRD, a benchmark that decouples embodied
+                spatial reasoning into four stages &mdash; <em>Explore</em> (what the agent observes), <em>Map</em>
+                (what it records and where), <em>Remember</em> (what it retains), and <em>Decide</em> (whether its
+                choice of the safest gathering room is justified) &mdash; scored with 18 stage-specific metrics. Across
+                eleven open- and closed-weight VLMs, 16 buildings, and 5,552 episodes under darkness, smoke, and motion
+                noise, we find that open-weight models leave rooms unvisited in 95% of episodes, the starting room
+                limits what gets explored, and simply swapping two room labels changes the final choice for 7 of the
+                11 models.</p>
+            </div>
+            <div class="project-links">
+              <a class="btn primary" href="https://arxiv.org/abs/2608.08077" target="_blank" rel="noopener">Paper</a>
+            </div>
+          </div>
+          <figure class="project-img project-img--lg">
+            <img src="static/img_emrd.jpg" loading="lazy" width="1762" height="1022"
+              alt="The robot's start view in four buildings (residential, office, clinic, school) under normal conditions, two levels of low light, and three densities of smoke." />
+          </figure>
+        </article>
+        <article class="project-card">
+          <div class="project-info">
+            <h3><a class="pub-link" href="https://arxiv.org/abs/2610.05346" target="_blank" rel="noopener">Reflections
+                and Fragments</a></h3>
+            <p class="pub-meta">Preprint &middot; arXiv:2610.05346</p>
+            <p class="project-authors">Emanuele La Malfa*, Saar Cohen*, <strong>Gabriele La Malfa</strong>, Mickel Liu,
+              Christian Schroeder de Witt, Natasha Jaques, Michael J. Wooldridge</p>
+            <div class="project-body">
+              <p><span class="project-tag">Problem</span>Self-play red-teaming hardens language models by pitting an
+                attacker against a defender. Real adversaries, however, increasingly rely on <em>mosaic attacks</em>:
+                multi-turn sequences whose fragments are innocuous in isolation but assemble into a harmful payload.
+                A defender that judges each turn locally can answer every request &ldquo;correctly&rdquo; and still
+                hand over something dangerous. How can a model refuse the mosaic without refusing everything?</p>
+              <p><span class="project-tag">Approach</span>We develop a theory of mosaic defense as an extensive-form
+                game with imperfect information. We prove that no fixed window of recent prompts suffices, and
+                introduce the <em>watchman</em>, an online state mechanism that carries safety-relevant information
+                forward and enables zero-failure defense while staying helpful on benign requests. We characterise its
+                state and query complexity, show that self-play equilibrium alone does not certify usefulness, and
+                empirically train role-specific attacker and defender LoRA adapters over frozen LLMs: both roles
+                improve, including on unseen attack objectives.</p>
+            </div>
+            <div class="project-links">
+              <a class="btn primary" href="https://arxiv.org/abs/2610.05346" target="_blank" rel="noopener">Paper</a>
+              <a class="btn ghost" href="https://github.com/EmanueleLM/mosaic-attacks-lora" target="_blank"
+                rel="noopener">Code</a>
+              <a class="btn ghost" href="https://huggingface.co/EmanueleLaMalfa/MosaicAttacks" target="_blank"
+                rel="noopener">Checkpoints</a>
+            </div>
+          </div>
+          <figure class="project-img project-img--lg">
+            <img src="static/img_reflections_fragments.png" loading="lazy" width="1388" height="705"
+              alt="(A) A mosaic attacker decomposes a hidden objective, creating a fraudulent invoice, into benign-looking requests. (B) Mosaic fragments versus escalation attacks. (C) Self-play training of LoRA attacker and defender adapters over a frozen model, scored by a judge." />
+          </figure>
+        </article>
         <article class="project-card">
           <div class="project-info">
             <h3><a class="pub-link" href="https://arxiv.org/abs/2605.08427" target="_blank" rel="noopener">The Attacker
