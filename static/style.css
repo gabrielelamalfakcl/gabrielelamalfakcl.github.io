@@ -683,6 +683,7 @@ a:hover {
 .project-img img {
   width: 100%;
   max-width: 700px;
+  height: auto;
   display: block;
   border: 2px solid var(--text);
   box-shadow: 5px 5px 0px var(--text);
