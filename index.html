@@ -48,7 +48,7 @@
     href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Outfit:wght@500;700;800&family=IBM+Plex+Mono:wght@400;600&display=swap"
     rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-  <link rel="stylesheet" href="static/style.css?v=3">
+  <link rel="stylesheet" href="static/style.css?v=4">
 </head>
 
 <body>
@@ -168,10 +168,8 @@
             </p>
             <div style="display: flex; gap: 12px; justify-content: center; margin-top: 8px; flex-wrap: wrap;">
               <a class="btn primary" href="static/doc/cv.pdf" target="_blank" rel="noopener">CV</a>
-              <a class="btn primary" href="static/doc/research_statement_short.pdf" target="_blank" rel="noopener">RS
-                (Short)</a>
-              <a class="btn primary" href="static/doc/research_statement_long.pdf" target="_blank" rel="noopener">RS
-                (Long)</a>
+              <a class="btn primary" href="static/doc/research_proposal_gabriele_la_malfa.pdf" target="_blank"
+                rel="noopener">Research Proposal</a>
               <a class="btn primary" href="https://scholar.google.com/citations?user=L8EsMJEAAAAJ" target="_blank"
                 rel="noopener">Scholar</a>
             </div>
@@ -300,8 +298,114 @@
             </div>
           </div>
           <figure class="project-img project-img--lg">
-            <img src="static/img_emrd_pipeline.png" loading="lazy" width="2113" height="1160"
-              alt="EMRD pipeline. (A) Benchmark setup: 16 generated buildings, a VLM agent loop that explores rooms, maps objects and picks the safest gathering room, a notepad track versus a full-history track, and darkness, smoke and motion-noise stresses. (B) Four stages scored separately: Explore, Map, Remember and Decide, each with its own metrics and main finding." />
+            <svg class="project-figure anim-fig em" viewBox="0 0 1200 600" role="img"
+              aria-label="Animated EMRD episode. A robot controlled by a vision-language model sweeps a five-room building during an alarm, clearing the fog in each room it enters and spotting objects. It enters four rooms, never visits the storage room, and declares that all rooms are checked. Alongside, the four EMRD stages are scored: Explore counts rooms entered, Map collects the objects written to the notepad, Remember compares the notepad with what the model keeps in context, and Decide checks the chosen gathering room.">
+              <title>EMRD: Explore, Map, Remember, Decide</title>
+              <rect class="em-panel" x="20" y="20" width="620" height="560" />
+              <text class="em-title" x="44" y="58">A&#8195;Sweeping a building during an alarm</text>
+              <rect class="em-room em-room-r2" x="44" y="84" width="180" height="180" />
+              <rect class="em-room em-room-r1" x="224" y="84" width="200" height="180" />
+              <rect class="em-room em-room-r3" x="424" y="84" width="192" height="180" />
+              <rect class="em-room em-room-r4" x="44" y="264" width="180" height="184" />
+              <rect class="em-room em-room-r5" x="224" y="264" width="392" height="184" />
+              <line class="em-door" x1="224" y1="150" x2="224" y2="200" />
+              <line class="em-door" x1="424" y1="150" x2="424" y2="200" />
+              <line class="em-door" x1="300" y1="264" x2="350" y2="264" />
+              <line class="em-door" x1="110" y1="264" x2="160" y2="264" />
+              <text class="em-room-label" x="56" y="106">R2 Office</text>
+              <text class="em-room-label" x="236" y="106">R1 Lobby · start</text>
+              <text class="em-room-label" x="436" y="106">R3 Meeting</text>
+              <text class="em-room-label" x="56" y="286">R4 Storage</text>
+              <text class="em-room-label" x="236" y="286">R5 Kitchen</text>
+              <g class="em-obj em-obj-sofa"><rect x="262" y="214" width="64" height="24" rx="6" /></g>
+              <g class="em-obj em-obj-desk"><rect x="66" y="120" width="76" height="30" rx="3" /></g>
+              <g class="em-obj em-obj-chair"><circle cx="178" cy="206" r="12" /></g>
+              <g class="em-obj em-obj-mtable"><ellipse cx="530" cy="200" rx="52" ry="22" /></g>
+              <g class="em-obj em-obj-ktable"><rect x="372" y="384" width="84" height="34" rx="3" /></g>
+              <g class="em-obj em-obj-fridge"><rect x="560" y="290" width="36" height="56" rx="3" /></g>
+              <g class="em-obj em-obj-shelf em-obj-missed"><rect x="62" y="300" width="96" height="18" rx="2" /></g>
+              <g class="em-obj em-obj-ext em-obj-missed"><rect x="150" y="368" width="16" height="38" rx="5" /></g>
+              <rect class="em-fog em-fog-r2" x="46" y="86" width="176" height="176" />
+              <rect class="em-fog em-fog-r3" x="426" y="86" width="188" height="176" />
+              <rect class="em-fog em-fog-r4" x="46" y="266" width="176" height="180" />
+              <rect class="em-fog em-fog-r5" x="226" y="266" width="388" height="180" />
+              <rect class="em-missed" x="50" y="270" width="168" height="172" />
+              <text class="em-missed-t" x="134" y="436" text-anchor="middle">never entered</text>
+              <rect class="em-gather" x="430" y="90" width="180" height="168" />
+              <g class="em-gather-tag"><rect x="470" y="232" width="100" height="22" rx="11" /><text x="520" y="248" text-anchor="middle">gather here</text></g>
+              <g class="em-robot">
+                <circle class="em-fov" cx="0" cy="0" r="64" />
+                <circle class="em-bot" cx="0" cy="0" r="13" />
+                <circle class="em-bot-eye" cx="0" cy="0" r="4.5" />
+              </g>
+              <g class="em-stop"><rect x="236" y="288" width="148" height="30" rx="8" /><text x="310" y="308" text-anchor="middle">“All rooms checked.”</text></g>
+              <line class="em-divider" x1="44" y1="472" x2="616" y2="472" />
+              <text class="em-small" x="44" y="500"><tspan class="em-strong">11 VLMs</tspan> · <tspan class="em-strong">16 buildings</tspan> · <tspan class="em-strong">5,552 episodes</tspan>, each run under:</text>
+              <g class="em-tag em-tag-nom"><rect x="44" y="518" width="82" height="30" rx="4" /><text x="85" y="538" text-anchor="middle">nominal</text></g>
+              <g class="em-tag em-tag-dark"><rect x="136.2" y="518" width="91" height="30" rx="4" /><text x="182" y="538" text-anchor="middle">darkness</text></g>
+              <g class="em-tag em-tag-smoke"><rect x="237.0" y="518" width="65" height="30" rx="4" /><text x="270" y="538" text-anchor="middle">smoke</text></g>
+              <g class="em-tag em-tag-noise"><rect x="312.0" y="518" width="125" height="30" rx="4" /><text x="375" y="538" text-anchor="middle">motion noise</text></g>
+              <rect class="em-panel" x="660" y="20" width="520" height="560" />
+              <text class="em-title" x="684" y="58">B&#8195;EMRD scores each stage</text>
+              <rect class="em-stage em-stage-e" x="680" y="76" width="480" height="112" />
+              <rect class="em-chip em-chip-e" x="694" y="90" width="30" height="30" />
+              <text class="em-chip-t" x="709" y="111" text-anchor="middle">E</text>
+              <text class="em-stage-name em-name-e" x="736" y="112">Explore</text>
+              <text class="em-small" x="834" y="112">Where did it go, and what did it see?</text>
+              <rect class="em-stage em-stage-m" x="680" y="200" width="480" height="112" />
+              <rect class="em-chip em-chip-m" x="694" y="214" width="30" height="30" />
+              <text class="em-chip-t" x="709" y="235" text-anchor="middle">M</text>
+              <text class="em-stage-name em-name-m" x="736" y="236">Map</text>
+              <text class="em-small" x="786" y="236">What did it write down, and where?</text>
+              <rect class="em-stage em-stage-r" x="680" y="324" width="480" height="112" />
+              <rect class="em-chip em-chip-r" x="694" y="338" width="30" height="30" />
+              <text class="em-chip-t" x="709" y="359" text-anchor="middle">R</text>
+              <text class="em-stage-name em-name-r" x="736" y="360">Remember</text>
+              <text class="em-small" x="846" y="360">What does it still know at the end?</text>
+              <rect class="em-stage em-stage-d" x="680" y="448" width="480" height="112" />
+              <rect class="em-chip em-chip-d" x="694" y="462" width="30" height="30" />
+              <text class="em-chip-t" x="709" y="483" text-anchor="middle">D</text>
+              <text class="em-stage-name em-name-d" x="736" y="484">Decide</text>
+              <text class="em-small" x="822" y="484">Is its final choice justified?</text>
+              <rect class="em-rbox" x="696" y="136" width="38" height="36" />
+              <rect class="em-rbox-on em-rbox-r1" x="696" y="136" width="38" height="36" />
+              <text class="em-rbox-t em-rbox-t-r1" x="715" y="159" text-anchor="middle">R1</text>
+              <rect class="em-rbox" x="742" y="136" width="38" height="36" />
+              <rect class="em-rbox-on em-rbox-r2" x="742" y="136" width="38" height="36" />
+              <text class="em-rbox-t em-rbox-t-r2" x="761" y="159" text-anchor="middle">R2</text>
+              <rect class="em-rbox" x="788" y="136" width="38" height="36" />
+              <rect class="em-rbox-on em-rbox-r3" x="788" y="136" width="38" height="36" />
+              <text class="em-rbox-t em-rbox-t-r3" x="807" y="159" text-anchor="middle">R3</text>
+              <rect class="em-rbox" x="834" y="136" width="38" height="36" />
+              <text class="em-rbox-t em-rbox-t-r4" x="853" y="159" text-anchor="middle">R4</text>
+              <rect class="em-rbox" x="880" y="136" width="38" height="36" />
+              <rect class="em-rbox-on em-rbox-r5" x="880" y="136" width="38" height="36" />
+              <text class="em-rbox-t em-rbox-t-r5" x="899" y="159" text-anchor="middle">R5</text>
+              <rect class="em-rbox-miss" x="834" y="136" width="38" height="36" />
+              <text class="em-score em-score-e" x="944" y="160"><tspan class="em-big">4 / 5</tspan> rooms entered</text>
+              <text class="em-tiny" x="696" y="264">NOTEPAD</text>
+              <g class="em-pill em-pill-0"><rect x="760" y="252" width="120" height="24" rx="12" /><text x="820" y="269" text-anchor="middle">R1 sofa</text></g>
+              <g class="em-pill em-pill-1"><rect x="890" y="252" width="120" height="24" rx="12" /><text x="950" y="269" text-anchor="middle">R2 desk</text></g>
+              <g class="em-pill em-pill-2"><rect x="1020" y="252" width="120" height="24" rx="12" /><text x="1080" y="269" text-anchor="middle">R2 chair</text></g>
+              <g class="em-pill em-pill-3"><rect x="760" y="282" width="120" height="24" rx="12" /><text x="820" y="299" text-anchor="middle">R3 table</text></g>
+              <g class="em-pill em-pill-4"><rect x="890" y="282" width="120" height="24" rx="12" /><text x="950" y="299" text-anchor="middle">R5 table</text></g>
+              <g class="em-pill em-pill-5"><rect x="1020" y="282" width="120" height="24" rx="12" /><text x="1080" y="299" text-anchor="middle">R5 fridge</text></g>
+              <text class="em-tiny" x="696" y="396">notepad</text>
+              <text class="em-tiny" x="696" y="422">context only</text>
+              <rect class="em-bar-track" x="800" y="386" width="300" height="12" />
+              <rect class="em-bar em-bar-note" x="800" y="386" width="300" height="12" />
+              <rect class="em-bar-track" x="800" y="412" width="300" height="12" />
+              <rect class="em-bar em-bar-ctx" x="800" y="412" width="300" height="12" />
+              <text class="em-bar-v em-bar-v-note" x="1108" y="397">6/6</text>
+              <text class="em-bar-v em-bar-v-ctx" x="1108" y="423">4/6</text>
+              <text class="em-small em-wait" x="696" y="534">waiting for the agent to stop exploring&#8230;</text>
+              <g class="em-verdict">
+                <text class="em-decide" x="696" y="528">Gather in <tspan class="em-strong">R3 Meeting</tspan></text>
+                <text class="em-small" x="696" y="550">picked from rooms it entered; claims match what it saw</text>
+                <g class="em-check"><circle cx="1012" cy="523" r="11" /><path d="M 1006 523 l 4 4 l 8 -9" /></g>
+                <text class="em-tiny em-ok" x="1030" y="528">grounded</text>
+              </g>
+            </svg>
           </figure>
         </article>
         <article class="project-card">
@@ -334,7 +438,7 @@
             </div>
           </div>
           <figure class="project-img project-img--lg">
-            <svg class="project-figure mf" viewBox="0 0 1200 600" role="img"
+            <svg class="project-figure anim-fig mf" viewBox="0 0 1200 600" role="img"
               aria-label="Animated mosaic attack. An attacker splits the hidden goal of forging an invoice into three harmless-looking questions. Each answer passes a per-turn safety check, but the three answers assemble into a harmful whole. Side panels contrast mosaic and escalation attacks and show self-play training of LoRA attacker and defender adapters over a frozen model, scored by a judge.">
               <title>Mosaic attacks: benign fragments, harmful in combination</title>
               <defs>
@@ -364,8 +468,8 @@
                 <circle class="mf-ok" cx="664" cy="232" r="13" /><path class="mf-ok-tick" d="M 657 232 l 5 5 l 9 -10" />
                 <text class="mf-tiny" x="664" y="262" text-anchor="middle">passes</text>
               </g>
-              <g class="mf-frag mf-f1" style="--dx: 626.0px; --dy: -274.0px;">
-                <polygon class="mf-hex" points="92.0,487.0 108.5,496.5 108.5,515.5 92.0,525.0 75.5,515.5 75.5,496.5" />
+              <g class="mf-frag mf-f1" style="--dx: 60.0px; --dy: -276.0px;">
+                <polygon class="mf-hex" points="658.0,489.0 674.5,498.5 674.5,517.5 658.0,527.0 641.5,517.5 641.5,498.5" />
               </g>
               <g class="mf-step mf-a2">
                 <circle class="mf-num" cx="42" cy="326" r="13" /><text class="mf-num-t" x="42" y="331" text-anchor="middle">2</text>
@@ -381,8 +485,8 @@
                 <circle class="mf-ok" cx="664" cy="326" r="13" /><path class="mf-ok-tick" d="M 657 326 l 5 5 l 9 -10" />
                 <text class="mf-tiny" x="664" y="356" text-anchor="middle">passes</text>
               </g>
-              <g class="mf-frag mf-f2" style="--dx: 591.0px; --dy: -180.0px;">
-                <polygon class="mf-hex" points="127.0,487.0 143.5,496.5 143.5,515.5 127.0,525.0 110.5,515.5 110.5,496.5" />
+              <g class="mf-frag mf-f2" style="--dx: 25.0px; --dy: -182.0px;">
+                <polygon class="mf-hex" points="693.0,489.0 709.5,498.5 709.5,517.5 693.0,527.0 676.5,517.5 676.5,498.5" />
               </g>
               <g class="mf-step mf-a3">
                 <circle class="mf-num" cx="42" cy="420" r="13" /><text class="mf-num-t" x="42" y="425" text-anchor="middle">3</text>
@@ -398,18 +502,18 @@
                 <circle class="mf-ok" cx="664" cy="420" r="13" /><path class="mf-ok-tick" d="M 657 420 l 5 5 l 9 -10" />
                 <text class="mf-tiny" x="664" y="450" text-anchor="middle">passes</text>
               </g>
-              <g class="mf-frag mf-f3" style="--dx: 608.5px; --dy: -116.0px;">
-                <polygon class="mf-hex" points="109.5,517.0 126.0,526.5 126.0,545.5 109.5,555.0 93.0,545.5 93.0,526.5" />
+              <g class="mf-frag mf-f3" style="--dx: 42.5px; --dy: -118.0px;">
+                <polygon class="mf-hex" points="675.5,519.0 692.0,528.5 692.0,547.5 675.5,557.0 659.0,547.5 659.0,528.5" />
               </g>
               <line class="mf-divider" x1="44" y1="466" x2="736" y2="466" />
-              <polygon class="mf-ring" points="109.5,472.0 149.3,495.0 149.3,541.0 109.5,564.0 69.7,541.0 69.7,495.0" />
+              <polygon class="mf-ring" points="675.5,472.0 715.3,495.0 715.3,541.0 675.5,564.0 635.7,541.0 635.7,495.0" />
               <g class="mf-calm">
-                <text class="mf-caption" x="190" y="512">Each answer passes a per-turn safety check&#8230;</text>
-                <text class="mf-small" x="190" y="538">fragments of information pile up across the conversation.</text>
+                <text class="mf-caption" x="44" y="512">Each answer passes a per-turn safety check&#8230;</text>
+                <text class="mf-small" x="44" y="538">fragments of information pile up across the conversation.</text>
               </g>
               <g class="mf-alarm">
-                <text class="mf-caption mf-caption-red" x="190" y="512">Benign individually; harmful in combination.</text>
-                <text class="mf-small" x="190" y="538">Defending needs a <tspan class="mf-strong">watchman</tspan> that remembers what was already given.</text>
+                <text class="mf-caption mf-caption-red" x="44" y="512">Benign individually; harmful in combination.</text>
+                <text class="mf-small" x="44" y="538">Defending needs a <tspan class="mf-strong">watchman</tspan> that remembers what was already given.</text>
               </g>
               <rect class="mf-panel" x="780" y="20" width="400" height="262" />
               <text class="mf-title" x="804" y="58">B&#8195;Mosaic vs escalation</text>
@@ -840,10 +944,8 @@
       </div>
       <div class="footer-actions">
         <a class="btn primary" href="static/doc/cv.pdf" target="_blank" rel="noopener">Download CV</a>
-        <a class="btn primary" href="static/doc/research_statement_short.pdf" target="_blank" rel="noopener">RS
-          (Short)</a>
-        <a class="btn primary" href="static/doc/research_statement_long.pdf" target="_blank" rel="noopener">RS
-          (Long)</a>
+        <a class="btn primary" href="static/doc/research_proposal_gabriele_la_malfa.pdf" target="_blank"
+          rel="noopener">Research Proposal</a>
         <a class="btn ghost" href="#top">Back to top</a>
       </div>
     </div>
@@ -863,6 +965,22 @@
         });
       }, { rootMargin: '0px 0px -12% 0px', threshold: 0.12 });
       items.forEach(function (el) { io.observe(el); });
+    })();
+
+    // Animated figures wait on their first frame until scrolled into view,
+    // so every visitor sees each loop from the beginning.
+    (function () {
+      var figs = document.querySelectorAll('.anim-fig');
+      if (!figs.length || !('IntersectionObserver' in window)) return;
+      document.documentElement.classList.add('js-anim');
+      var io = new IntersectionObserver(function (entries) {
+        entries.forEach(function (entry) {
+          if (!entry.isIntersecting) return;
+          entry.target.classList.add('is-playing');
+          io.unobserve(entry.target);
+        });
+      }, { threshold: 0.35 });
+      figs.forEach(function (el) { io.observe(el); });
     })();
   </script>
 </body>
